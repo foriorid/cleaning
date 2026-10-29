@@ -620,13 +620,17 @@
                     </button>
                 </div>
 
-                <form id="booking-form" onsubmit="submitBooking(event)" class="space-y-3.5 text-sm">
-                    <div>
-                        <label class="block text-xs font-semibold text-brand-dark mb-1"><span data-i18n="bookName">Nama Lengkap</span> <span class="text-red-500">*</span></label>
-                        <input type="text" id="cust-name" required oninput="syncWhatsAppLink()" data-i18n-ph="bookNamePh" placeholder="Contoh: Budi Santoso" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark">
-                    </div>
+                <form id="booking-form" onsubmit="submitBooking(event)" class="space-y-4 text-sm">
 
-                    <div class="grid grid-cols-1 gap-3">
+                    <!-- STEP 1: customer + services -->
+                    <div id="booking-step-1" class="space-y-3.5">
+                        <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-700"><span data-i18n="step1of2">Langkah 1 dari 2 — Layanan</span></p>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-brand-dark mb-1"><span data-i18n="bookName">Nama Lengkap</span> <span class="text-red-500">*</span></label>
+                            <input type="text" id="cust-name" required oninput="syncWhatsAppLink()" data-i18n-ph="bookNamePh" placeholder="Contoh: Budi Santoso" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark">
+                        </div>
+
                         <div>
                             <label class="block text-xs font-semibold text-brand-dark mb-1"><span data-i18n="bookService">Pilih Jenis Layanan</span> <span class="text-red-500">*</span></label>
                             <select id="cust-service" onchange="updateQuantityAndEstimate()" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark bg-white"></select>
@@ -660,6 +664,18 @@
                             </div>
                         </div>
 
+                        <p id="booking-error" class="hidden text-xs text-red-600 font-medium"></p>
+
+                        <button type="button" onclick="goToStep2()" class="w-full bg-brand-dark hover:bg-black text-white font-semibold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-lg transition-all active:translate-y-0 hover:-translate-y-0.5">
+                            <span data-i18n="bookNext">Lanjut ke Jadwal & Lokasi</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- STEP 2: schedule + location -->
+                    <div id="booking-step-2" class="space-y-3.5 hidden">
+                        <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-700"><span data-i18n="step2of2">Langkah 2 dari 2 — Jadwal & Lokasi</span></p>
+
                         <div>
                             <label data-i18n="bookArea" class="block text-xs font-semibold text-brand-dark mb-1">Wilayah Tangerang Raya</label>
                             <select id="cust-area" onchange="toggleAreaOther(); syncWhatsAppLink()" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark bg-white">
@@ -679,37 +695,47 @@
                             </select>
                             <input type="text" id="cust-area-other" oninput="syncWhatsAppLink()" data-i18n-ph="areaOtherPh" placeholder="Tulis wilayah Anda" class="hidden w-full mt-2 px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark">
                         </div>
-                    </div>
 
-                    <!-- Fixed Date & Time Layout (No Overlap on Mobile) -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="min-w-0">
-                            <label data-i18n="bookDate" class="block text-xs font-semibold text-brand-dark mb-1">Tanggal</label>
-                            <input type="date" id="cust-date" onchange="syncWhatsAppLink()" class="block w-full min-w-0 px-3.5 py-2.5 rounded-xl border border-gray-200 bg-white text-brand-dark focus:outline-none focus:border-brand-dark appearance-none">
+                        <!-- Fixed Date & Time Layout (No Overlap on Mobile) -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="min-w-0">
+                                <label data-i18n="bookDate" class="block text-xs font-semibold text-brand-dark mb-1">Tanggal</label>
+                                <input type="date" id="cust-date" onchange="syncWhatsAppLink()" class="block w-full min-w-0 px-3.5 py-2.5 rounded-xl border border-gray-200 bg-white text-brand-dark focus:outline-none focus:border-brand-dark appearance-none">
+                            </div>
+                            <div class="min-w-0">
+                                <label data-i18n="bookTime" class="block text-xs font-semibold text-brand-dark mb-1">Jam Kedatangan</label>
+                                <select id="cust-time" onchange="syncWhatsAppLink()" class="block w-full min-w-0 px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark bg-white">
+                                <option value="08:00 WIB">08:00 WIB</option>
+                                <option value="09:00 WIB">09:00 WIB</option>
+                                <option value="10:00 WIB">10:00 WIB</option>
+                                <option value="11:00 WIB">11:00 WIB</option>
+                                <option value="12:00 WIB">12:00 WIB</option>
+                                <option value="13:00 WIB">13:00 WIB</option>
+                                <option value="14:00 WIB">14:00 WIB</option>
+                                <option value="15:00 WIB">15:00 WIB</option>
+                                <option value="16:00 WIB">16:00 WIB</option>
+                                <option value="17:00 WIB">17:00 WIB</option>
+                                <option value="18:00 WIB">18:00 WIB</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="min-w-0">
-                            <label data-i18n="bookTime" class="block text-xs font-semibold text-brand-dark mb-1">Jam Kedatangan</label>
-                            <select id="cust-time" onchange="syncWhatsAppLink()" class="block w-full min-w-0 px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark bg-white">
-                                <option value="08:00 WIB (Pagi)">08:00 WIB (Pagi)</option>
-                                <option value="10:00 WIB (Menjelang Siang)">10:00 WIB (Menjelang Siang)</option>
-                                <option value="13:00 WIB (Siang)">13:00 WIB (Siang)</option>
-                                <option value="15:00 WIB (Sore)">15:00 WIB (Sore)</option>
-                            </select>
+
+                        <div>
+                            <label data-i18n="bookNotes" class="block text-xs font-semibold text-brand-dark mb-1">Catatan / Detail Alamat</label>
+                            <textarea id="cust-notes" oninput="syncWhatsAppLink()" rows="2" data-i18n-ph="bookNotesPh" placeholder="Nama cluster, nomor rumah, patokan alamat..." class="w-full px-3.5 py-2 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark"></textarea>
+                        </div>
+
+                        <div class="flex gap-2.5 pt-1">
+                            <button type="button" onclick="goToStep1()" class="shrink-0 px-5 py-3.5 rounded-full border border-gray-200 text-brand-dark font-semibold flex items-center justify-center gap-1.5 hover:bg-gray-50 transition-all">
+                                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                                <span data-i18n="bookBack">Kembali</span>
+                            </button>
+                            <a id="wa-direct-submit-btn" href="https://wa.me/6281379097488" target="_blank" rel="noopener noreferrer" onclick="handleDirectWaClick(event)" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-lg transition-all cursor-pointer">
+                                <span data-i18n="bookSubmit">Kirim Pesanan via WhatsApp</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
                         </div>
                     </div>
-
-                    <div>
-                        <label data-i18n="bookNotes" class="block text-xs font-semibold text-brand-dark mb-1">Catatan / Detail Alamat</label>
-                        <textarea id="cust-notes" oninput="syncWhatsAppLink()" rows="2" data-i18n-ph="bookNotesPh" placeholder="Nama cluster, nomor rumah, patokan alamat..." class="w-full px-3.5 py-2 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark"></textarea>
-                    </div>
-
-                    <p id="booking-error" class="hidden text-xs text-red-600 font-medium -mt-1"></p>
-
-                    <!-- Direct Native WhatsApp Anchor Button -->
-                    <a id="wa-direct-submit-btn" href="https://wa.me/6281379097488" target="_blank" rel="noopener noreferrer" onclick="handleDirectWaClick(event)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-lg transition-all cursor-pointer">
-                        <span data-i18n="bookSubmit">Kirim Pesanan via WhatsApp</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
                 </form>
             </div>
         </div>
@@ -805,6 +831,10 @@
                 errService: "Please add at least one service.",
                 areaOther: "Other",
                 areaOtherPh: "Enter your area",
+                step1of2: "Step 1 of 2 — Services",
+                step2of2: "Step 2 of 2 — Schedule & Location",
+                bookNext: "Continue to Schedule & Location",
+                bookBack: "Back",
                 qtyLabelSeat: "Number of Seats (how many seaters / seats)",
                 qtyLabelM2: "Area Size (square meters / m²)",
                 qtyLabelUnit: "Quantity (how many units / mattresses)",
@@ -894,6 +924,10 @@
                 errService: "Pilih minimal satu layanan.",
                 areaOther: "Lainnya",
                 areaOtherPh: "Tulis wilayah Anda",
+                step1of2: "Langkah 1 dari 2 — Layanan",
+                step2of2: "Langkah 2 dari 2 — Jadwal & Lokasi",
+                bookNext: "Lanjut ke Jadwal & Lokasi",
+                bookBack: "Kembali",
                 qtyLabelSeat: "Jumlah Dudukan (Berapa Seater / Seat)",
                 qtyLabelM2: "Luas Area (Meter Persegi / m²)",
                 qtyLabelUnit: "Jumlah (Berapa Unit / Kasur)",
@@ -1302,9 +1336,23 @@ const SERVICES = [{"key": "general", "icon": "house", "img": "data:image/jpeg;ba
         }
 
         function handleDirectWaClick(e) {
-            if (!validateBooking()) { if (e) e.preventDefault(); return; }
+            if (!validateBooking()) { if (e) e.preventDefault(); goToStep1(); return; }
             syncWhatsAppLink();
             setTimeout(() => { closeBookingModal(); }, 400);
+        }
+
+        function goToStep1() {
+            document.getElementById('booking-step-2').classList.add('hidden');
+            document.getElementById('booking-step-1').classList.remove('hidden');
+            const sc = document.querySelector('#booking-modal .overflow-y-auto');
+            if (sc) sc.scrollTo({ top: 0 });
+        }
+        function goToStep2() {
+            if (!validateBooking()) return;
+            document.getElementById('booking-step-1').classList.add('hidden');
+            document.getElementById('booking-step-2').classList.remove('hidden');
+            const sc = document.querySelector('#booking-modal .overflow-y-auto');
+            if (sc) sc.scrollTo({ top: 0 });
         }
 
         // Booking Modal Controls
@@ -1328,6 +1376,7 @@ const SERVICES = [{"key": "general", "icon": "house", "img": "data:image/jpeg;ba
             renderCart();
             const errEl = document.getElementById('booking-error');
             if (errEl) errEl.classList.add('hidden');
+            goToStep1();
             modal.classList.remove('hidden');
         }
 
