@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Cemerlang Tangerang Raya - Premium Cleaning Services</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#14171A',
+                            gray: '#6E757C',
+                            light: '#F7F8FA',
+                            surface: '#FFFFFF'
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.06)',
+                        'card': '0 4px 20px -2px rgba(0,0,0,0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles to match exact gradient & aesthetics from reference */
+        .hero-gradient-overlay {
+            background: linear-gradient(
+                90deg, 
+                rgba(245, 245, 243, 0.96) 0%, 
+                rgba(245, 245, 243, 0.85) 42%, 
+                rgba(245, 245, 243, 0.15) 75%, 
+                rgba(245, 245, 243, 0) 100%
+            );
+        }
+        .hero-bottom-fade {
+            background: linear-gradient(
+                180deg,
+                rgba(247, 248, 250, 0) 0%,
+                rgba(247, 248, 250, 0.85) 65%,
+                rgba(247, 248, 250, 1) 100%
+            );
+        }
+        /* Hide scrollbar for clean mobile view */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-[#ECEEF2] text-brand-dark antialiased selection:bg-brand-dark selection:text-white">
+
+    <!-- Main Container Wrapper -->
+    <div id="app-wrapper" class="max-w-[440px] mx-auto bg-brand-light min-h-screen shadow-2xl relative overflow-hidden transition-all duration-300 md:my-6 md:rounded-[38px] md:border-[6px] md:border-white">
+
+        <!-- HERO SECTION -->
+        <header class="relative min-h-[540px] flex flex-col justify-between overflow-hidden">
+            
+            <!-- Hero Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img 
+                    src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=85" 
+                    alt="Mega Cemerlang Professional Cleaner" 
+                    class="w-full h-full object-cover object-[72%_center] scale-105 transform"
+                    onerror="this.src='https://placehold.co/800x1000/e2e8f0/1e293b?text=Mega+Cemerlang'"
+                >
+                <!-- Left-to-right soft gradient matching reference image -->
+                <div class="absolute inset-0 hero-gradient-overlay"></div>
+                <!-- Bottom marble/surface fade -->
+                <div class="absolute inset-x-0 bottom-0 h-36 hero-bottom-fade"></div>
+            </div>
+
+            <!-- Navigation Bar -->
+            <nav class="relative z-20 px-6 pt-3 pb-4 flex items-center justify-between">
+                <!-- Exact Custom Double-Line House Logo + Brand Name -->
+                <a href="#" class="flex items-center gap-2.5 group">
+                    <svg class="w-10 h-9 text-brand-dark transition-transform group-hover:scale-105" viewBox="0 0 44 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Outer Roof & Walls -->
+                        <path d="M3 16.5L22 2.5L41 16.5V35.5H34.5V19L22 9.5L9.5 19V35.5H3V16.5Z" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
+                        <!-- Inner Arch/Door -->
+                        <path d="M17.5 35.5V25.5C17.5 23.0147 19.5147 21 22 21C24.4853 21 26.5 23.0147 26.5 25.5V35.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                    </svg>
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-sm tracking-tight leading-none text-brand-dark">MEGA CEMERLANG</span>
+                        <span class="text-[10px] font-semibold tracking-widest text-brand-gray uppercase mt-0.5">Tangerang Raya</span>
+                    </div>
+                </a>
+
+                <!-- Right Nav Controls (Language Toggle + Hamburger) -->
+                <div class="flex items-center gap-2.5">
+                    <!-- EN/ID Language Toggle Switch (Default EN) -->
+                    <div class="bg-black/10 backdrop-blur-xs p-0.5 rounded-full flex items-center text-[11px] font-bold">
+                        <button id="lang-en" onclick="setLanguage('en')" class="px-2.5 py-1 rounded-full bg-brand-dark text-white transition-all">EN</button>
+                        <button id="lang-id" onclick="setLanguage('id')" class="px-2.5 py-1 rounded-full text-brand-dark transition-all">ID</button>
+                    </div>
+
+                    <!-- Hamburger Menu Button -->
+                    <button onclick="toggleMobileMenu()" aria-label="Menu" class="p-2 text-brand-dark hover:bg-black/5 rounded-xl transition-colors">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                            <line x1="4" y1="7" x2="20" y2="7"></line>
+                            <line x1="4" y1="12" x2="20" y2="12"></line>
+                            <line x1="4" y1="17" x2="20" y2="17"></line>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Hero Text Content -->
+            <div class="relative z-20 px-6 pt-6 pb-24 max-w-[320px] sm:max-w-md">
+                <h1 id="txt-hero-title" class="text-[42px] leading-[1.08] font-bold tracking-[-0.03em] text-brand-dark mb-4">
+                    Premium<br>
+                    Cleaning<br>
+                    Services
+                </h1>
+                <p id="txt-hero-subtitle" class="text-[17px] leading-[1.4] text-brand-gray font-normal mb-7">
+                    A cleaner space,<br>
+                    a healthier life.
+                </p>
+                
+                <!-- CTA Pill Button -->
+                <button onclick="openBookingModal('General Cleaning (Rumah / Kantor)')" class="bg-[#14171A] hover:bg-black text-white font-medium text-[15px] px-6 py-3.5 rounded-full inline-flex items-center gap-3 shadow-lg shadow-black/15 hover:shadow-xl hover:-translate-y-0.5 transition-all active:translate-y-0">
+                    <span id="txt-hero-cta">Book a Service</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 stroke-[2.2]"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- FLOATING FEATURE BAR (3 Columns) -->
+        <section class="relative z-30 px-5 -mt-12">
+            <div class="bg-white rounded-[24px] py-5 px-3 shadow-soft border border-gray-100/80 grid grid-cols-3 divide-x divide-gray-200/80">
+                
+                <!-- Feature 1: Terpercaya & Handal -->
+                <div class="flex items-center justify-center gap-2 px-2">
+                    <div class="text-brand-dark shrink-0">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="m9 12 2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <span id="txt-feat-1" class="text-[11.5px] leading-[1.25] font-semibold text-brand-dark">
+                        Terpercaya<br>& Handal
+                    </span>
+                </div>
+
+                <!-- Feature 2: Tim Profesional -->
+                <div class="flex items-center justify-center gap-2 px-2">
+                    <div class="text-brand-dark shrink-0">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                            <path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>
+                        </svg>
+                    </div>
+                    <span id="txt-feat-2" class="text-[11.5px] leading-[1.25] font-semibold text-brand-dark">
+                        Tim<br>Profesional
+                    </span>
+                </div>
+
+                <!-- Feature 3: Jadwal Fleksibel -->
+                <div class="flex items-center justify-center gap-2 px-2">
+                    <div class="text-brand-dark shrink-0">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                            <path d="M3 3v5h5"/>
+                            <path d="M12 7v5l4 2"/>
+                        </svg>
+                    </div>
+                    <span id="txt-feat-3" class="text-[11.5px] leading-[1.25] font-semibold text-brand-dark">
+                        Jadwal<br>Fleksibel
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- OUR SERVICES SECTION (Click Category to View Price List Detail) -->
+        <section id="services" class="px-5 pt-9 pb-6">
+            <!-- Header Row -->
+            <div class="flex items-baseline justify-between mb-1.5">
+                <h2 id="txt-services-title" class="text-[28px] font-bold tracking-tight text-brand-dark">Layanan Kami</h2>
+                <button onclick="openAllServicesModal()" class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-brand-dark hover:opacity-70 transition-opacity">
+                    <span id="txt-see-all">Lihat Semua</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </button>
+            </div>
+            <p id="txt-services-sub" class="text-[14px] leading-[1.4] text-brand-gray mb-5">
+                Klik kategori layanan di bawah untuk melihat rincian harga lengkap.
+            </p>
+
+            <!-- Categories Grid -->
+            <div id="services-grid" class="grid grid-cols-2 gap-3.5">
+                
+                <!-- Category 1: Laundry Springbed -->
+                <div onclick="openCategoryDetail('springbed')" class="group bg-white rounded-[20px] p-2 pb-3.5 shadow-card hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100/60 flex flex-col">
+                    <div class="relative h-[115px] w-full rounded-[14px] overflow-hidden bg-gray-100">
+                        <img 
+                            src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80" 
+                            alt="Laundry Springbed" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            onerror="this.src='https://placehold.co/400x300/f1f5f9/334155?text=Laundry+Springbed'"
+                        >
+                        <span data-i18n="svc1Badge" class="absolute top-2 right-2 bg-black/70 backdrop-blur-xs text-white text-[10px] font-semibold px-2 py-0.5 rounded-full">Mulai Rp 180rb</span>
+                    </div>
+                    <!-- Overlapping Circle Icon -->
+                    <div class="relative -mt-6 ml-2.5 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-brand-dark z-10">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 4v16"/>
+                            <path d="M2 8h18a2 2 0 0 1 2 2v10"/>
+                            <path d="M2 17h20"/>
+                            <path d="M6 8v9"/>
+                        </svg>
+                    </div>
+                    <!-- Title + Arrow -->
+                    <div class="mt-2 px-2 flex items-center justify-between gap-1">
+                        <div>
+                            <h3 data-i18n="svc1Title" class="font-semibold text-[13.5px] text-brand-dark tracking-tight leading-snug">Laundry Springbed</h3>
+                            <p data-i18n="svc1Sub" class="text-[11px] text-brand-gray">Biasa & Latex</p>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-brand-dark shrink-0 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Category 2: Sofa, Jok Mobil & Salon KM -->
+                <div onclick="openCategoryDetail('sofa')" class="group bg-white rounded-[20px] p-2 pb-3.5 shadow-card hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100/60 flex flex-col">
+                    <div class="relative h-[115px] w-full rounded-[14px] overflow-hidden bg-gray-100">
+                        <img 
+                            src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80" 
+                            alt="Laundry Sofa & Jok Mobil" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            onerror="this.src='https://placehold.co/400x300/f1f5f9/334155?text=Sofa+%26+Jok+Mobil'"
+                        >
+                        <span data-i18n="svc2Badge" class="absolute top-2 right-2 bg-black/70 backdrop-blur-xs text-white text-[10px] font-semibold px-2 py-0.5 rounded-full">Mulai Rp 50rb</span>
+                    </div>
+                    <!-- Overlapping Circle Icon -->
+                    <div class="relative -mt-6 ml-2.5 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-brand-dark z-10">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/>
+                            <path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H6v-2a2 2 0 0 0-4 0Z"/>
+                            <path d="M4 18v2"/><path d="M20 18v2"/>
+                        </svg>
+                    </div>
+                    <!-- Title + Arrow -->
+                    <div class="mt-2 px-2 flex items-center justify-between gap-1">
+                        <div>
+                            <h3 data-i18n="svc2Title" class="font-semibold text-[13.5px] text-brand-dark tracking-tight leading-snug">Sofa & Jok Mobil</h3>
+                            <p data-i18n="svc2Sub" class="text-[11px] text-brand-gray">+ Stroller & Salon KM</p>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-brand-dark shrink-0 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Category 3: Poles Lantai -->
+                <div onclick="openCategoryDetail('poles')" class="group bg-white rounded-[20px] p-2 pb-3.5 shadow-card hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100/60 flex flex-col">
+                    <div class="relative h-[115px] w-full rounded-[14px] overflow-hidden bg-gray-100">
+                        <img 
+                            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" 
+                            alt="Poles Lantai Marmer Terazzo Granite" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            onerror="this.src='https://placehold.co/400x300/f1f5f9/334155?text=Poles+Lantai'"
+                        >
+                        <span data-i18n="svc3Badge" class="absolute top-2 right-2 bg-black/70 backdrop-blur-xs text-white text-[10px] font-semibold px-2 py-0.5 rounded-full">Mulai Rp 25rb/m²</span>
+                    </div>
+                    <!-- Overlapping Circle Icon -->
+                    <div class="relative -mt-6 ml-2.5 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-brand-dark z-10">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                        </svg>
+                    </div>
+                    <!-- Title + Arrow -->
+                    <div class="mt-2 px-2 flex items-center justify-between gap-1">
+                        <div>
+                            <h3 data-i18n="svc3Title" class="font-semibold text-[13.5px] text-brand-dark tracking-tight leading-snug">Poles Lantai</h3>
+                            <p data-i18n="svc3Sub" class="text-[11px] text-brand-gray">Marmer, Terazzo, Granit</p>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-brand-dark shrink-0 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Category 4: General Cleaning & Laundry Karpet -->
+                <div onclick="openCategoryDetail('general_karpet')" class="group bg-white rounded-[20px] p-2 pb-3.5 shadow-card hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100/60 flex flex-col">
+                    <div class="relative h-[115px] w-full rounded-[14px] overflow-hidden bg-gray-100">
+                        <img 
+                            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80" 
+                            alt="General Cleaning & Karpet" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            onerror="this.src='https://placehold.co/400x300/f1f5f9/334155?text=General+Cleaning'"
+                        >
+                        <span data-i18n="svc4Badge" class="absolute top-2 right-2 bg-black/70 backdrop-blur-xs text-white text-[10px] font-semibold px-2 py-0.5 rounded-full">Mulai Rp 15rb/m²</span>
+                    </div>
+                    <!-- Overlapping Circle Icon -->
+                    <div class="relative -mt-6 ml-2.5 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-brand-dark z-10">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <!-- Title + Arrow -->
+                    <div class="mt-2 px-2 flex items-center justify-between gap-1">
+                        <div>
+                            <h3 data-i18n="svc4Title" class="font-semibold text-[13.5px] text-brand-dark tracking-tight leading-snug">General & Karpet</h3>
+                            <p data-i18n="svc4Sub" class="text-[11px] text-brand-gray">Rumah, Kantor & Karpet</p>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-brand-dark shrink-0 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- WHY CHOOSE US SECTION -->
+        <section id="why-us" class="relative px-5 pt-6 pb-8 overflow-hidden">
+            
+            <!-- Curved Arch Plant Decoration on the Right -->
+            <div class="absolute -right-12 top-6 w-60 h-60 rounded-full bg-[#E6E9EF] overflow-hidden pointer-events-none z-0 flex items-center justify-center">
+                <img 
+                    src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=500&q=80" 
+                    alt="Green Indoor Plant" 
+                    class="w-full h-full object-cover opacity-90 scale-110"
+                    onerror="this.style.display='none'"
+                >
+            </div>
+
+            <div class="relative z-10 max-w-[240px] mb-6">
+                <h2 id="txt-why-title" class="text-[28px] font-bold tracking-tight text-brand-dark mb-1.5">Mengapa Kami?</h2>
+                <p id="txt-why-sub" class="text-[14.5px] leading-[1.4] text-brand-gray">
+                    Lebih dari sekadar bersih —<br>untuk ketenangan pikiran Anda.
+                </p>
+            </div>
+
+            <!-- Value Propositions Cards -->
+            <div class="relative z-10 space-y-3 mt-8">
+                <div class="bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-card border border-gray-100 flex items-start gap-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-brand-light flex items-center justify-center shrink-0 text-brand-dark">
+                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 data-i18n="whyCard1Title" class="font-bold text-sm text-brand-dark">Peralatan & Chemical Terbaik</h4>
+                        <p data-i18n="whyCard1Desc" class="text-xs text-brand-gray mt-0.5 leading-relaxed">Menggunakan mesin ekstraktor modern dan cairan pembersih aman bagi keluarga.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-card border border-gray-100 flex items-start gap-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-brand-light flex items-center justify-center shrink-0 text-brand-dark">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 data-i18n="whyCard2Title" class="font-bold text-sm text-brand-dark">Layanan Panggilan Tangerang Raya</h4>
+                        <p data-i18n="whyCard2Desc" class="text-xs text-brand-gray mt-0.5 leading-relaxed">Tim siap datang langsung ke lokasi Anda di Tangsel, Kota Tangerang, dan Kab. Tangerang.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COVERAGE AREA SECTION (Interactive Map Style Matching Reference) -->
+        <section id="coverage-area" class="px-5 pt-2 pb-8">
+            <div class="mb-3.5 flex items-end justify-between">
+                <div>
+                    <span id="txt-cov-tag" class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100/80 px-2.5 py-1 rounded-full">Our Service Coverage</span>
+                    <h2 id="txt-cov-title" class="text-[24px] font-bold tracking-tight text-brand-dark mt-1">Coverage Area</h2>
+                    <p id="txt-cov-sub" class="text-xs text-brand-gray">Wilayah jangkauan operasional di Tangerang & Tangerang Selatan:</p>
+                </div>
+            </div>
+
+            <!-- Map Container (Non-clickable pins as requested) -->
+            <div class="relative w-full h-[460px] rounded-[28px] overflow-hidden shadow-card border border-gray-200/80 bg-[#F4F6F3] select-none pointer-events-none">
+                
+                <!-- Subtle Map Background SVG (Roads, Blocks & Green Parks) -->
+                <svg class="absolute inset-0 w-full h-full object-cover" viewBox="0 0 400 460" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <!-- Base Map Land -->
+                    <rect width="400" height="460" fill="#F6F7F4"/>
+                    <!-- Soft Green Park Zones -->
+                    <path d="M140 15H290C310 45 280 95 250 110C210 130 160 115 135 80C115 50 125 25 140 15Z" fill="#E6F2E8" opacity="0.75"/>
+                    <path d="M-20 310C30 290 85 320 110 365C135 410 90 455 40 465H-20V310Z" fill="#E6F2E8" opacity="0.6"/>
+                    <path d="M290 250C340 240 390 270 410 320V440H280C255 390 260 260 290 250Z" fill="#E6F2E8" opacity="0.65"/>
+                    
+                    <!-- Map Major Roads / Highways -->
+                    <path d="M-10 95 Q 110 110, 210 70 T 410 45" stroke="#FFFFFF" stroke-width="6"/>
+                    <path d="M-10 95 Q 110 110, 210 70 T 410 45" stroke="#F9E2A8" stroke-width="3"/>
+                    <path d="M75 -10 Q 95 160, 60 290 T 95 470" stroke="#FFFFFF" stroke-width="5"/>
+                    <path d="M285 -10 Q 260 180, 310 310 T 340 470" stroke="#FFFFFF" stroke-width="4.5"/>
+                    <path d="M-10 230 Q 150 210, 240 260 T 410 250" stroke="#FFFFFF" stroke-width="4.5"/>
+                    <path d="M-10 380 Q 180 350, 410 395" stroke="#FFFFFF" stroke-width="4"/>
+
+                    <!-- Faint Background Sub-district Labels -->
+                    <text x="195" y="128" fill="#9CA3AF" font-size="9" font-weight="600" text-anchor="middle" opacity="0.6">TANGERANG RAYA</text>
+                    <text x="50" y="195" fill="#9CA3AF" font-size="8" font-weight="500" opacity="0.55">Serpong Utara</text>
+                    <text x="315" y="160" fill="#9CA3AF" font-size="8" font-weight="500" opacity="0.55">Karang Tengah</text>
+                    <text x="245" y="238" fill="#9CA3AF" font-size="8" font-weight="500" opacity="0.55">Pondok Aren</text>
+                    <text x="320" y="365" fill="#9CA3AF" font-size="8" font-weight="500" opacity="0.55">Setu</text>
+                    <text x="85" y="425" fill="#9CA3AF" font-size="8" font-weight="500" opacity="0.55">Legok</text>
+                </svg>
+
+                <!-- Dotted Crosshair Lines -->
+                <div class="absolute inset-y-0 left-1/2 border-l border-dashed border-gray-400/40"></div>
+                <div class="absolute inset-x-0 top-[56%] border-t border-dashed border-gray-400/40"></div>
+
+                <!-- Central Green Radar Circle -->
+                <div class="absolute left-1/2 top-[56%] -translate-x-1/2 -translate-y-1/2 w-[230px] h-[230px] rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                    <div class="w-4 h-4 rounded-full bg-emerald-600 border-[3px] border-white shadow-md"></div>
+                </div>
+
+                <!-- PIN 1: Cikupa (Top Left) -->
+                <div class="absolute top-[6%] left-[14%] -translate-x-1/2 flex flex-col items-center">
+                    <div class="relative w-8 h-8 rounded-full bg-[#1E2631] text-white flex items-center justify-center text-[8.5px] font-bold shadow-md">
+                        Ready
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#1E2631] rotate-45"></span>
+                    </div>
+                    <span class="mt-1.5 text-[11px] font-extrabold text-brand-dark bg-white/80 backdrop-blur-xs px-1.5 py-0.5 rounded-md shadow-2xs">Cikupa</span>
+                    <span class="text-[9.5px] font-semibold text-brand-gray">Kab. Tangerang</span>
+                </div>
+
+                <!-- PIN 2: Citra Raya (Top Center) -->
+                <div class="absolute top-[11%] left-[48%] -translate-x-1/2 flex flex-col items-center">
+                    <div class="relative w-8 h-8 rounded-full bg-[#4A3E59] text-white flex items-center justify-center text-[8.5px] font-bold shadow-md">
+                        Ready
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#4A3E59] rotate-45"></span>
+                    </div>
+                    <span class="mt-1.5 text-[11px] font-extrabold text-brand-dark bg-white/80 backdrop-blur-xs px-1.5 py-0.5 rounded-md shadow-2xs">Citra Raya</span>
+                    <span class="text-[9.5px] font-semibold text-brand-gray">Tangerang</span>
+                </div>
+
+                <!-- PIN 3: Karawaci (Top Right) -->
+                <div class="absolute top-[6%] left-[82%] -translate-x-1/2 flex flex-col items-center">
+                    <div class="relative w-8 h-8 rounded-full bg-[#1E2631] text-white flex items-center justify-center text-[8.5px] font-bold shadow-md">
+                        Ready
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#1E2631] rotate-45"></span>
+                    </div>
+                    <span class="mt-1.5 text-[11px] font-extrabold text-brand-dark bg-white/80 backdrop-blur-xs px-1.5 py-0.5 rounded-md shadow-2xs">Karawaci</span>
+                    <span class="text-[9.5px] font-semibold text-brand-gray">Kota Tangerang</span>
+                </div>
+
+                <!-- PIN 4: Gading Serpong (Upper Left Green Pin) -->
+                <div class="absolute top-[25%] left-[19%] -translate-x-1/2 flex flex-col items-center">
+                    <div class="relative w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-md border-2 border-white">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-emerald-600 rotate-45"></span>
+                    </div>
+                    <span class="mt-1.5 text-[11px] font-extrabold text-brand-dark bg-white/85 backdrop-blur-xs px-1.5 py-0.5 rounded-md shadow-2xs">Gading Serpong</span>
+                    <span class="text-[9.5px] font-semibold text-brand-gray">Fast Response</span>
+                </div>
+
+                <!-- PIN 5: Alam Sutera (Upper Right Pin) -->
+                <div class="absolute top-[22%] left-[80%] -translate-x-1/2 flex flex-col items-center">
+                    <div class="relative w-9 h-9 rounded-full bg-amber-100 border-2 border-brand-dark flex items-center justify-center shadow-md overflow-hidden">
+                        <svg class="w-6 h-6 text-brand-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <span class="mt-1 text-[11px] font-extrabold text-brand-dark bg-white/85 backdrop-blur-xs px-1.5 py-0.5 rounded-md shadow-2xs">Alam Sutera</span>
+                    <span class="text-[9.5px] font-semibold text-brand-gray">Tim Standby</span>
+                </div>
+
+                <!-- PIN 6: BSD City (Center Radar Cleaner Hub Pin) -->
+                <div class="absolute top-[37%] left-[43%] -translate-x-1/2 flex flex-col items-center z-20">
+                    <div class="relative w-10 h-10 rounded-full bg-white border-2 border-brand-dark flex items-center justify-center shadow-lg">
+                        <span class="text-base">🧹</span>
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-brand-dark rotate-45"></span>
+                    </div>
+                    <span class="mt-1.5 text-[12px] font-extrabold text-brand-dark bg-white/95 px-2 py-0.5 rounded-md shadow-xs">BSD City</span>
+                    <span class="text-[10px] font-semibold text-emerald-700">Cleaner Hub</span>
+                </div>
+
+                <!-- PIN 7: Cipondoh (Middle Right) -->
+                <div class="absolute top-[41%] left-[82%] -translate-x-1/2 flex flex-col items-center">
+                    <div class="relative w-8 h-8 rounded-full bg-[#4A3E59] text-white flex items-center justify-center text-[8.5px] font-bold shadow-md">
+                        Ready
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#4A3E59] rotate-45"></span>
+                    </div>
+                    <span class="mt-1.5 text-[11px] font-extrabold text-brand-dark bg-white/85 px-1.5 py-0.5 rounded-md shadow-2xs">Cipondoh</span>
+                    <span class="text-[9.5px] font-semibold text-brand-gray">Kota Tangerang</span>
+                </div>
+
+                <!-- PIN 8: Graha Raya (Middle Left) -->
+                <div class="absolute top-[55%] left-[15%] -translate-x-1/2 flex flex-col items-center">
+                    <div class="relative w-8 h-8 rounded-full bg-[#4A3E59] text-white flex items-center justify-center text-[8.5px] font-bold shadow-md">
+                        Ready
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#4A3E59] rotate-45"></span>
+                    </div>
+                    <span class="mt-1.5 text-[11px] font-extrabold text-brand-dark bg-white/85 px-1.5 py-0.5 rounded-md shadow-2xs">Graha Raya</span>
+                    <span class="text-[9.5px] font-semibold text-brand-gray">Tangsel</span>
+                </div>
+
+                <!-- PIN 9: Bintaro (Center Right Green Pin) -->
+                <div class="absolute top-[58%] left-[68%] -translate-x-1/2 flex flex-col items-center z-20">
+                    <div class="relative w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-md border-2 border-white">
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-emerald-600 rotate-45"></span>
+                    </div>
+                    <span class="mt-1.5 text-[11.5px] font-extrabold text-brand-dark bg-white/95 px-2 py-0.5 rounded-md shadow-2xs">Bintaro</span>
+                    <span class="text-[9.5px] font-semibold text-brand-gray">Sektor 1 - 9</span>
+                </div>
+
+                <!-- PIN 10: Pamulang (Bottom Left Purple Pin) -->
+                <div class="absolute top-[79%] left-[19%] -translate-x-1/2 flex flex-col items-center">
+                    <div class="relative w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center shadow-md border-2 border-white">
+                        <i data-lucide="home" class="w-3.5 h-3.5"></i>
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-purple-600 rotate-45"></span>
+                    </div>
+                    <span class="mt-1.5 text-[11px] font-extrabold text-brand-dark bg-white/85 px-1.5 py-0.5 rounded-md shadow-2xs">Pamulang</span>
+                    <span class="text-[9.5px] font-semibold text-brand-gray">Tangsel</span>
+                </div>
+
+                <!-- PIN 11: Ciputat (Bottom Center) -->
+                <div class="absolute top-[78%] left-[52%] -translate-x-1/2 flex flex-col items-center">
+                    <div class="relative w-8 h-8 rounded-full bg-[#4A3E59] text-white flex items-center justify-center text-[8.5px] font-bold shadow-md">
+                        Ready
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#4A3E59] rotate-45"></span>
+                    </div>
+                    <span class="mt-1.5 text-[11px] font-extrabold text-brand-dark bg-white/85 px-1.5 py-0.5 rounded-md shadow-2xs">Ciputat</span>
+                    <span class="text-[9.5px] font-semibold text-brand-gray">Tangsel</span>
+                </div>
+
+                <!-- PIN 12: Ciledug (Bottom Right) -->
+                <div class="absolute top-[72%] left-[84%] -translate-x-1/2 flex flex-col items-center">
+                    <div class="relative w-8 h-8 rounded-full bg-[#1E2631] text-white flex items-center justify-center text-[8.5px] font-bold shadow-md">
+                        Ready
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#1E2631] rotate-45"></span>
+                    </div>
+                    <span class="mt-1.5 text-[11px] font-extrabold text-brand-dark bg-white/85 px-1.5 py-0.5 rounded-md shadow-2xs">Ciledug</span>
+                    <span class="text-[9.5px] font-semibold text-brand-gray">Tangerang</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER & CONTACT SECTION -->
+        <section id="contact" class="px-5 py-7 bg-white rounded-t-[32px] shadow-soft">
+            <div class="bg-brand-light rounded-2xl p-4 flex items-center justify-between border border-gray-200/60">
+                <div>
+                    <span data-i18n="contactTag" class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">Konsultasi & Booking</span>
+                    <p class="font-extrabold text-base text-brand-dark mt-1">0813 - 7909 - 7488</p>
+                    <a href="https://instagram.com/megacemerlang.id" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-gray hover:text-brand-dark transition-colors">@megacemerlang.id</a>
+                </div>
+                <a href="https://wa.me/6281379097488?text=Halo%20Mega%20Cemerlang%20Tangerang%20Raya,%20saya%20ingin%20tanya%20layanan%20cleaning" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-3 rounded-xl inline-flex items-center gap-1.5 shadow-sm transition-colors">
+                    <i data-lucide="phone-call" class="w-4 h-4"></i> <span data-i18n="contactWa">Hubungi WA</span>
+                </a>
+            </div>
+
+            <footer class="mt-6 pt-5 border-t border-gray-100 text-center">
+                <div class="flex items-center justify-center gap-2 mb-1.5">
+                    <svg class="w-5 h-5 text-brand-dark" viewBox="0 0 44 38" fill="none">
+                        <path d="M3 16.5L22 2.5L41 16.5V35.5H34.5V19L22 9.5L9.5 19V35.5H3V16.5Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                        <path d="M17.5 35.5V25.5C17.5 23.0147 19.5147 21 22 21C24.4853 21 26.5 23.0147 26.5 25.5V35.5" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+                    </svg>
+                    <span class="font-extrabold text-xs text-brand-dark">MEGA CEMERLANG TANGERANG RAYA</span>
+                </div>
+                <p class="text-[11px] text-gray-400">© 2026 Mega Cemerlang Indonesia (@megacemerlang.id). All rights reserved.</p>
+            </footer>
+        </section>
+
+        <!-- MOBILE NAVIGATION DRAWER -->
+        <div id="mobile-menu" class="fixed inset-0 z-50 hidden">
+            <div onclick="toggleMobileMenu()" class="absolute inset-0 bg-black/50 backdrop-blur-xs"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-72 bg-white p-6 shadow-2xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between pb-6 border-b border-gray-100">
+                        <span class="font-extrabold text-sm text-brand-dark">MEGA CEMERLANG</span>
+                        <button onclick="toggleMobileMenu()" class="p-1.5 rounded-lg hover:bg-gray-100">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <ul class="mt-6 space-y-3 font-semibold text-sm text-brand-dark">
+                        <li><a href="#" data-i18n="navHome" onclick="toggleMobileMenu()" class="block py-2 hover:translate-x-1 transition-transform">Beranda</a></li>
+                        <li><a href="#services" data-i18n="navServices" onclick="toggleMobileMenu()" class="block py-2 hover:translate-x-1 transition-transform">Kategori Layanan & Harga</a></li>
+                        <li><a href="#why-us" data-i18n="navWhy" onclick="toggleMobileMenu()" class="block py-2 hover:translate-x-1 transition-transform">Mengapa Kami?</a></li>
+                        <li><a href="#coverage-area" data-i18n="navCoverage" onclick="toggleMobileMenu()" class="block py-2 hover:translate-x-1 transition-transform">Coverage Area Layanan</a></li>
+                        <li><a href="#contact" data-i18n="navContact" onclick="toggleMobileMenu()" class="block py-2 hover:translate-x-1 transition-transform">Kontak Kami</a></li>
+                    </ul>
+                </div>
+                <div class="pt-4 border-t border-gray-100">
+                    <p class="text-xs font-semibold text-brand-dark mb-1">WhatsApp: 0813-7909-7488</p>
+                    <p class="text-[11px] text-brand-gray mb-3">Instagram: @megacemerlang.id</p>
+                    <button onclick="toggleMobileMenu(); openBookingModal('General Cleaning (Rumah / Kantor)')" class="w-full bg-brand-dark text-white py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2">
+                        <span data-i18n="heroCta">Pesan Layanan</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY DETAIL MODAL (Pop-up Rincian Harga per Kategori) -->
+        <div id="category-detail-modal" class="fixed inset-0 z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+            <div onclick="closeCategoryDetail()" class="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"></div>
+            <div class="relative bg-white w-full max-w-md rounded-t-[28px] sm:rounded-[28px] p-6 shadow-2xl z-10 max-h-[88vh] overflow-y-auto">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <span data-i18n="catPriceTag" class="text-[10px] font-bold uppercase tracking-wider text-brand-gray bg-gray-100 px-2.5 py-1 rounded-full">Daftar Harga Resmi</span>
+                        <h3 id="cat-modal-title" class="text-xl font-bold text-brand-dark mt-1.5">Detail Layanan</h3>
+                        <p id="cat-modal-subtitle" class="text-xs text-brand-gray mt-0.5"></p>
+                    </div>
+                    <button onclick="closeCategoryDetail()" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-brand-dark">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Dynamic Content Area -->
+                <div id="cat-modal-body" class="space-y-2.5 my-4"></div>
+
+                <div class="pt-3 border-t border-gray-100 flex flex-col gap-2">
+                    <button id="cat-modal-book-btn" type="button" class="w-full bg-brand-dark hover:bg-black text-white font-semibold py-3.5 rounded-full text-sm flex items-center justify-center gap-2 shadow-lg transition-all cursor-pointer">
+                        <span data-i18n="catBookBtn">Atur Jumlah & Pesan Layanan Ini</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                    <a id="cat-modal-wa-direct" href="https://wa.me/6281379097488" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-full text-xs flex items-center justify-center gap-2 shadow-md transition-all">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span data-i18n="catWaDirect">Chat & Pesan Langsung via WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOKING MODAL -->
+        <div id="booking-modal" class="fixed inset-0 z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+            <div onclick="closeBookingModal()" class="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"></div>
+            <div class="relative bg-white w-full max-w-md rounded-t-[28px] sm:rounded-[28px] p-6 shadow-2xl z-10 max-h-[90vh] overflow-y-auto">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span data-i18n="bookFormTag" class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full">Form Pemesanan Cepat</span>
+                        <h3 class="text-xl font-bold text-brand-dark mt-1">Mega Cemerlang</h3>
+                        <p class="text-[11px] text-brand-gray">WA Resmi: 0813-7909-7488 • IG: @megacemerlang.id</p>
+                    </div>
+                    <button onclick="closeBookingModal()" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-brand-dark">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <form id="booking-form" onsubmit="submitBooking(event)" class="space-y-3.5 text-sm">
+                    <div>
+                        <label data-i18n="bookName" class="block text-xs font-semibold text-brand-dark mb-1">Nama Lengkap</label>
+                        <input type="text" id="cust-name" oninput="syncWhatsAppLink()" data-i18n-ph="bookNamePh" placeholder="Contoh: Budi Santoso" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark">
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-3">
+                        <div>
+                            <label data-i18n="bookService" class="block text-xs font-semibold text-brand-dark mb-1">Pilih Jenis Layanan</label>
+                            <select id="cust-service" onchange="updateQuantityAndEstimate()" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark bg-white">
+                                <optgroup label="Laundry Springbed">
+                                    <option value="Springbed Biasa 100x200 (Rp 180.000)" data-unit="Unit" data-min="180000" data-max="180000">Springbed Biasa 100x200 - Rp 180.000</option>
+                                    <option value="Springbed Latex 100x200 (Rp 250.000)" data-unit="Unit" data-min="250000" data-max="250000">Springbed Latex 100x200 - Rp 250.000</option>
+                                    <option value="Springbed Biasa 120x200 (Rp 185.000)" data-unit="Unit" data-min="185000" data-max="185000">Springbed Biasa 120x200 - Rp 185.000</option>
+                                    <option value="Springbed Latex 120x200 (Rp 260.000)" data-unit="Unit" data-min="260000" data-max="260000">Springbed Latex 120x200 - Rp 260.000</option>
+                                    <option value="Springbed Biasa 160x200 (Rp 285.000)" data-unit="Unit" data-min="285000" data-max="285000">Springbed Biasa 160x200 - Rp 285.000</option>
+                                    <option value="Springbed Latex 160x200 (Rp 350.000)" data-unit="Unit" data-min="350000" data-max="350000">Springbed Latex 160x200 - Rp 350.000</option>
+                                    <option value="Springbed Biasa 180x200 (Rp 310.000)" data-unit="Unit" data-min="310000" data-max="310000">Springbed Biasa 180x200 - Rp 310.000</option>
+                                    <option value="Springbed Latex 180x200 (Rp 400.000)" data-unit="Unit" data-min="400000" data-max="400000">Springbed Latex 180x200 - Rp 400.000</option>
+                                    <option value="Springbed Biasa 200x200 (Rp 370.000)" data-unit="Unit" data-min="370000" data-max="370000">Springbed Biasa 200x200 - Rp 370.000</option>
+                                    <option value="Springbed Latex 200x200 (Rp 430.000)" data-unit="Unit" data-min="430000" data-max="430000">Springbed Latex 200x200 - Rp 430.000</option>
+                                </optgroup>
+                                <optgroup label="Laundry Sofa, Jok Mobil & Kamar Mandi">
+                                    <option value="Laundry Sofa (Rp 50K - 85K / Seat)" data-unit="Seat" data-min="50000" data-max="85000">Sofa - Rp 50K - 85K / Seat</option>
+                                    <option value="Laundry Jok Mobil (Rp 50K - 85K / Seat)" data-unit="Seat" data-min="50000" data-max="85000">Jok Mobil - Rp 50K - 85K / Seat</option>
+                                    <option value="Laundry Stroller (Rp 170K / Seat)" data-unit="Seat" data-min="170000" data-max="170000">Stroller - Rp 170K / Seat</option>
+                                    <option value="Laundry Car Seat (Rp 180K / Seat)" data-unit="Seat" data-min="180000" data-max="180000">Car Seat - Rp 180K / Seat</option>
+                                    <option value="Salon Kamar Mandi (Rp 150K - 250K / Unit)" data-unit="Unit" data-min="150000" data-max="250000">Salon Kamar Mandi - Rp 150K - 250K / Unit</option>
+                                </optgroup>
+                                <optgroup label="Poles Lantai">
+                                    <option value="Poles Marmer Kristalisasi (Rp 40K / m²)" data-unit="m²" data-min="40000" data-max="40000">Marmer (Kristalisasi) - Rp 40K / m²</option>
+                                    <option value="Poles Marmer Selep (Rp 75K / m²)" data-unit="m²" data-min="75000" data-max="75000">Marmer (Selep) - Rp 75K / m²</option>
+                                    <option value="Poles Terazzo Kristalisasi (Rp 40K / m²)" data-unit="m²" data-min="40000" data-max="40000">Terazzo (Kristalisasi) - Rp 40K / m²</option>
+                                    <option value="Poles Terazzo Selep (Rp 75K / m²)" data-unit="m²" data-min="75000" data-max="75000">Terazzo (Selep) - Rp 75K / m²</option>
+                                    <option value="Poles Granite Tile (Rp 25K - 35K / m²)" data-unit="m²" data-min="25000" data-max="35000">Granite Tile - Rp 25K - 35K / m²</option>
+                                </optgroup>
+                                <optgroup label="General Cleaning & Karpet">
+                                    <option value="Laundry Karpet (Rp 15K - 20K / m²)" data-unit="m²" data-min="15000" data-max="20000">Laundry Karpet - Rp 15K - 20K / m²</option>
+                                    <option value="General Cleaning Rumah / Kantor (Rp 20K - 30K / m²)" data-unit="m²" data-min="20000" data-max="30000">General Cleaning (Rumah / Kantor) - Rp 20K - 30K / m²</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <!-- Dynamic Quantity & Price Estimate Field -->
+                        <div class="bg-brand-light p-3.5 rounded-2xl border border-gray-200/80 space-y-2.5">
+                            <div class="flex items-center justify-between gap-3">
+                                <div class="flex-1">
+                                    <label id="qty-label" class="block text-xs font-bold text-brand-dark mb-1">Jumlah (Seat / m² / Unit)</label>
+                                    <div class="flex items-center gap-2">
+                                        <button type="button" onclick="adjustQty(-1)" class="w-9 h-9 rounded-xl bg-white border border-gray-200 flex items-center justify-center font-bold text-brand-dark hover:bg-gray-100 active:scale-95 transition-all">-</button>
+                                        <input type="number" id="cust-qty" min="1" value="1" oninput="calculateEstimate()" required class="w-20 text-center font-bold px-2 py-2 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-brand-dark">
+                                        <button type="button" onclick="adjustQty(1)" class="w-9 h-9 rounded-xl bg-white border border-gray-200 flex items-center justify-center font-bold text-brand-dark hover:bg-gray-100 active:scale-95 transition-all">+</button>
+                                        <span id="qty-unit-badge" class="text-xs font-semibold text-brand-gray ml-1">Unit</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-2 border-t border-gray-200/70 flex items-center justify-between">
+                                <span data-i18n="bookEstimate" class="text-xs font-medium text-brand-gray">Estimasi Total Harga:</span>
+                                <span id="price-estimate" class="text-sm font-extrabold text-emerald-700">Rp 180.000</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label data-i18n="bookArea" class="block text-xs font-semibold text-brand-dark mb-1">Wilayah Tangerang Raya</label>
+                            <select id="cust-area" onchange="syncWhatsAppLink()" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark bg-white">
+                                <option value="BSD City">BSD City</option>
+                                <option value="Gading Serpong">Gading Serpong</option>
+                                <option value="Bintaro">Bintaro</option>
+                                <option value="Ciputat">Ciputat</option>
+                                <option value="Pamulang">Pamulang</option>
+                                <option value="Graha Raya">Graha Raya</option>
+                                <option value="Alam Sutera">Alam Sutera</option>
+                                <option value="Karawaci">Karawaci</option>
+                                <option value="Cipondoh">Cipondoh</option>
+                                <option value="Ciledug">Ciledug</option>
+                                <option value="Cikupa">Cikupa</option>
+                                <option value="Citra Raya">Citra Raya</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Fixed Date & Time Layout (No Overlap on Mobile) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="min-w-0">
+                            <label data-i18n="bookDate" class="block text-xs font-semibold text-brand-dark mb-1">Tanggal</label>
+                            <input type="date" id="cust-date" onchange="syncWhatsAppLink()" required class="block w-full min-w-0 px-3.5 py-2.5 rounded-xl border border-gray-200 bg-white text-brand-dark focus:outline-none focus:border-brand-dark appearance-none">
+                        </div>
+                        <div class="min-w-0">
+                            <label data-i18n="bookTime" class="block text-xs font-semibold text-brand-dark mb-1">Jam Kedatangan</label>
+                            <select id="cust-time" onchange="syncWhatsAppLink()" class="block w-full min-w-0 px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark bg-white">
+                                <option value="08:00 WIB (Pagi)">08:00 WIB (Pagi)</option>
+                                <option value="10:00 WIB (Menjelang Siang)">10:00 WIB (Menjelang Siang)</option>
+                                <option value="13:00 WIB (Siang)">13:00 WIB (Siang)</option>
+                                <option value="15:00 WIB (Sore)">15:00 WIB (Sore)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label data-i18n="bookNotes" class="block text-xs font-semibold text-brand-dark mb-1">Catatan / Detail Alamat</label>
+                        <textarea id="cust-notes" oninput="syncWhatsAppLink()" rows="2" data-i18n-ph="bookNotesPh" placeholder="Nama cluster, nomor rumah, patokan alamat..." class="w-full px-3.5 py-2 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark"></textarea>
+                    </div>
+
+                    <!-- Direct Native WhatsApp Anchor Button -->
+                    <a id="wa-direct-submit-btn" href="https://wa.me/6281379097488" target="_blank" rel="noopener noreferrer" onclick="handleDirectWaClick(event)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-lg transition-all cursor-pointer">
+                        <span data-i18n="bookSubmit">Kirim Pesanan via WhatsApp</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </form>
+            </div>
+        </div>
+
+        <!-- ALL SERVICES MODAL (Ringkasan Kategori) -->
+        <div id="all-services-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+            <div onclick="closeAllServicesModal()" class="fixed inset-0 bg-black/60 backdrop-blur-xs"></div>
+            <div class="relative bg-white w-full max-w-md rounded-[28px] p-6 shadow-2xl z-10 max-h-[85vh] overflow-y-auto">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h3 data-i18n="allSvcTitle" class="text-lg font-bold text-brand-dark">Kategori Layanan Kami</h3>
+                        <p data-i18n="allSvcSub" class="text-xs text-brand-gray">Pilih kategori untuk melihat rincian harga</p>
+                    </div>
+                    <button onclick="closeAllServicesModal()" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+                <div class="space-y-2.5 text-sm">
+                    <div onclick="closeAllServicesModal(); openCategoryDetail('springbed')" class="p-3.5 rounded-2xl border border-gray-100 hover:border-brand-dark flex items-center justify-between cursor-pointer">
+                        <div>
+                            <p data-i18n="allSvc1Title" class="font-bold text-brand-dark">Laundry Springbed</p>
+                            <p data-i18n="allSvc1Sub" class="text-xs text-brand-gray">Ukuran 100x200 s/d 200x200 (Biasa & Latex)</p>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </div>
+                    <div onclick="closeAllServicesModal(); openCategoryDetail('sofa')" class="p-3.5 rounded-2xl border border-gray-100 hover:border-brand-dark flex items-center justify-between cursor-pointer">
+                        <div>
+                            <p data-i18n="allSvc2Title" class="font-bold text-brand-dark">Laundry Sofa & Jok Mobil</p>
+                            <p data-i18n="allSvc2Sub" class="text-xs text-brand-gray">Sofa, Jok Mobil, Stroller, Car Seat & Salon KM</p>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </div>
+                    <div onclick="closeAllServicesModal(); openCategoryDetail('poles')" class="p-3.5 rounded-2xl border border-gray-100 hover:border-brand-dark flex items-center justify-between cursor-pointer">
+                        <div>
+                            <p data-i18n="allSvc3Title" class="font-bold text-brand-dark">Poles Lantai</p>
+                            <p data-i18n="allSvc3Sub" class="text-xs text-brand-gray">Marmer, Terazzo (Kristalisasi/Selep) & Granite Tile</p>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </div>
+                    <div onclick="closeAllServicesModal(); openCategoryDetail('general_karpet')" class="p-3.5 rounded-2xl border border-gray-100 hover:border-brand-dark flex items-center justify-between cursor-pointer">
+                        <div>
+                            <p data-i18n="allSvc4Title" class="font-bold text-brand-dark">General Cleaning & Laundry Karpet</p>
+                            <p data-i18n="allSvc4Sub" class="text-xs text-brand-gray">Pembersihan Rumah/Kantor & Cuci Karpet per m²</p>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Initialize Lucide icons (guarded so a CDN hiccup never blocks the rest of the script)
+        if (window.lucide) lucide.createIcons();
+
+        // Translation Dictionary (EN Default, ID toggleable)
+        let currentLang = 'en';
+        let currentCategoryKey = null; // tracks the open category modal so it re-renders on language change
+        const translations = {
+            en: {
+                heroTitle: "Premium<br>Cleaning<br>Services",
+                heroSub: "A cleaner space,<br>a healthier life.",
+                heroCta: "Book a Service",
+                feat1: "Trusted<br>& Reliable",
+                feat2: "Professional<br>Team",
+                feat3: "Flexible<br>Scheduling",
+                servicesTitle: "Our Services",
+                servicesSub: "Click any service category below to view complete price details.",
+                seeAll: "See All",
+                whyTitle: "Why Choose Us?",
+                whySub: "Beyond clean —<br>for your peace of mind.",
+                covTag: "Our Service Coverage",
+                covTitle: "Coverage Area",
+                covSub: "Operational areas across Tangerang & South Tangerang:",
+                navHome: "Home",
+                navServices: "Services & Pricing",
+                navWhy: "Why Choose Us?",
+                navCoverage: "Coverage Area",
+                navContact: "Contact Us",
+                // Service cards
+                svc1Badge: "From Rp 180k", svc1Title: "Springbed Laundry", svc1Sub: "Standard & Latex",
+                svc2Badge: "From Rp 50k", svc2Title: "Sofa & Car Seats", svc2Sub: "+ Stroller & Bathroom",
+                svc3Badge: "From Rp 25k/m²", svc3Title: "Floor Polishing", svc3Sub: "Marble, Terrazzo, Granite",
+                svc4Badge: "From Rp 15k/m²", svc4Title: "General & Carpet", svc4Sub: "Home, Office & Carpet",
+                // Why choose us cards
+                whyCard1Title: "Best Equipment & Chemicals",
+                whyCard1Desc: "We use modern extractor machines and cleaning agents that are safe for your family.",
+                whyCard2Title: "On-Call Service Across Tangerang Raya",
+                whyCard2Desc: "Our team is ready to come directly to your location in South Tangerang, Tangerang City, and Tangerang Regency.",
+                // Contact
+                contactTag: "Consultation & Booking",
+                contactWa: "Contact via WA",
+                // Category detail modal
+                catPriceTag: "Official Price List",
+                catBookBtn: "Set Quantity & Book This Service",
+                catWaDirect: "Chat & Order Directly via WhatsApp",
+                catClickSelect: "Click to choose this service",
+                // Booking modal / form
+                bookFormTag: "Quick Booking Form",
+                bookName: "Full Name",
+                bookNamePh: "e.g. Budi Santoso",
+                bookService: "Choose Service Type",
+                bookEstimate: "Estimated Total Price:",
+                bookArea: "Tangerang Raya Area",
+                bookDate: "Date",
+                bookTime: "Arrival Time",
+                bookNotes: "Notes / Address Details",
+                bookNotesPh: "Cluster name, house number, address landmark...",
+                bookSubmit: "Send Order via WhatsApp",
+                qtyLabelSeat: "Number of Seats (how many seaters / seats)",
+                qtyLabelM2: "Area Size (square meters / m²)",
+                qtyLabelUnit: "Quantity (how many units / mattresses)",
+                // All services modal
+                allSvcTitle: "Our Service Categories",
+                allSvcSub: "Choose a category to view price details",
+                allSvc1Title: "Springbed Laundry",
+                allSvc1Sub: "Sizes 100x200 to 200x200 (Standard & Latex)",
+                allSvc2Title: "Sofa & Car Seat Laundry",
+                allSvc2Sub: "Sofa, Car Seats, Stroller, Car Seat & Bathroom Detailing",
+                allSvc3Title: "Floor Polishing",
+                allSvc3Sub: "Marble, Terrazzo (Crystallization/Grinding) & Granite Tile",
+                allSvc4Title: "General Cleaning & Carpet Laundry",
+                allSvc4Sub: "Home/Office Cleaning & Carpet Washing per m²",
+                // Category modal titles & subtitles (dynamic)
+                cat_springbed_title: "Springbed Laundry",
+                cat_springbed_sub: "Available for Standard & Latex Springbed types (tap an item to order)",
+                cat_sofa_title: "Sofa & Car Seat Laundry",
+                cat_sofa_sub: "Includes Stroller, Car Seat & Bathroom Detailing",
+                cat_poles_title: "Floor Polishing",
+                cat_poles_sub: "Crystallization & Grinding treatment to restore floor shine",
+                cat_general_karpet_title: "General Cleaning & Carpet",
+                cat_general_karpet_sub: "Complete cleaning solution for Home, Office & Carpet"
+            },
+            id: {
+                heroTitle: "Layanan<br>Kebersihan<br>Premium",
+                heroSub: "Ruang lebih bersih,<br>hidup lebih sehat.",
+                heroCta: "Pesan Layanan",
+                feat1: "Terpercaya<br>& Handal",
+                feat2: "Tim<br>Profesional",
+                feat3: "Jadwal<br>Fleksibel",
+                servicesTitle: "Layanan Kami",
+                servicesSub: "Klik kategori layanan di bawah untuk melihat rincian harga lengkap.",
+                seeAll: "Lihat Semua",
+                whyTitle: "Mengapa Kami?",
+                whySub: "Lebih dari sekadar bersih —<br>untuk ketenangan pikiran Anda.",
+                covTag: "Jangkauan Layanan Kami",
+                covTitle: "Coverage Area",
+                covSub: "Wilayah jangkauan operasional di Tangerang & Tangerang Selatan:",
+                navHome: "Beranda",
+                navServices: "Kategori Layanan & Harga",
+                navWhy: "Mengapa Kami?",
+                navCoverage: "Coverage Area Layanan",
+                navContact: "Kontak Kami",
+                // Service cards
+                svc1Badge: "Mulai Rp 180rb", svc1Title: "Laundry Springbed", svc1Sub: "Biasa & Latex",
+                svc2Badge: "Mulai Rp 50rb", svc2Title: "Sofa & Jok Mobil", svc2Sub: "+ Stroller & Salon KM",
+                svc3Badge: "Mulai Rp 25rb/m²", svc3Title: "Poles Lantai", svc3Sub: "Marmer, Terazzo, Granit",
+                svc4Badge: "Mulai Rp 15rb/m²", svc4Title: "General & Karpet", svc4Sub: "Rumah, Kantor & Karpet",
+                // Why choose us cards
+                whyCard1Title: "Peralatan & Chemical Terbaik",
+                whyCard1Desc: "Menggunakan mesin ekstraktor modern dan cairan pembersih aman bagi keluarga.",
+                whyCard2Title: "Layanan Panggilan Tangerang Raya",
+                whyCard2Desc: "Tim siap datang langsung ke lokasi Anda di Tangsel, Kota Tangerang, dan Kab. Tangerang.",
+                // Contact
+                contactTag: "Konsultasi & Booking",
+                contactWa: "Hubungi WA",
+                // Category detail modal
+                catPriceTag: "Daftar Harga Resmi",
+                catBookBtn: "Atur Jumlah & Pesan Layanan Ini",
+                catWaDirect: "Chat & Pesan Langsung via WhatsApp",
+                catClickSelect: "Klik untuk pilih layanan ini",
+                // Booking modal / form
+                bookFormTag: "Form Pemesanan Cepat",
+                bookName: "Nama Lengkap",
+                bookNamePh: "Contoh: Budi Santoso",
+                bookService: "Pilih Jenis Layanan",
+                bookEstimate: "Estimasi Total Harga:",
+                bookArea: "Wilayah Tangerang Raya",
+                bookDate: "Tanggal",
+                bookTime: "Jam Kedatangan",
+                bookNotes: "Catatan / Detail Alamat",
+                bookNotesPh: "Nama cluster, nomor rumah, patokan alamat...",
+                bookSubmit: "Kirim Pesanan via WhatsApp",
+                qtyLabelSeat: "Jumlah Dudukan (Berapa Seater / Seat)",
+                qtyLabelM2: "Luas Area (Meter Persegi / m²)",
+                qtyLabelUnit: "Jumlah (Berapa Unit / Kasur)",
+                // All services modal
+                allSvcTitle: "Kategori Layanan Kami",
+                allSvcSub: "Pilih kategori untuk melihat rincian harga",
+                allSvc1Title: "Laundry Springbed",
+                allSvc1Sub: "Ukuran 100x200 s/d 200x200 (Biasa & Latex)",
+                allSvc2Title: "Laundry Sofa & Jok Mobil",
+                allSvc2Sub: "Sofa, Jok Mobil, Stroller, Car Seat & Salon KM",
+                allSvc3Title: "Poles Lantai",
+                allSvc3Sub: "Marmer, Terazzo (Kristalisasi/Selep) & Granite Tile",
+                allSvc4Title: "General Cleaning & Laundry Karpet",
+                allSvc4Sub: "Pembersihan Rumah/Kantor & Cuci Karpet per m²",
+                // Category modal titles & subtitles (dynamic)
+                cat_springbed_title: "Laundry Springbed",
+                cat_springbed_sub: "Tersedia untuk tipe Springbed Biasa & Springbed Latex (Klik item untuk pesan)",
+                cat_sofa_title: "Laundry Sofa & Jok Mobil",
+                cat_sofa_sub: "Termasuk Stroller, Car Seat & Salon Kamar Mandi",
+                cat_poles_title: "Poles Lantai",
+                cat_poles_sub: "Perawatan Kristalisasi & Selep lantai agar kembali berkilau",
+                cat_general_karpet_title: "General Cleaning & Karpet",
+                cat_general_karpet_sub: "Solusi bersih menyeluruh untuk Rumah, Kantor & Karpet"
+            }
+        };
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            document.documentElement.lang = lang;
+
+            document.getElementById('lang-en').className = lang === 'en' ? 'px-2.5 py-1 rounded-full bg-brand-dark text-white transition-all' : 'px-2.5 py-1 rounded-full text-brand-dark transition-all';
+            document.getElementById('lang-id').className = lang === 'id' ? 'px-2.5 py-1 rounded-full bg-brand-dark text-white transition-all' : 'px-2.5 py-1 rounded-full text-brand-dark transition-all';
+
+            // Generic translation pass for all tagged elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key] != null) el.textContent = t[key];
+            });
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (t[key] != null) el.innerHTML = t[key];
+            });
+            document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+                const key = el.getAttribute('data-i18n-ph');
+                if (t[key] != null) el.placeholder = t[key];
+            });
+
+            // Elements that use innerHTML (contain <br>) are handled explicitly
+            document.getElementById('txt-hero-title').innerHTML = t.heroTitle;
+            document.getElementById('txt-hero-subtitle').innerHTML = t.heroSub;
+            document.getElementById('txt-hero-cta').textContent = t.heroCta;
+            document.getElementById('txt-feat-1').innerHTML = t.feat1;
+            document.getElementById('txt-feat-2').innerHTML = t.feat2;
+            document.getElementById('txt-feat-3').innerHTML = t.feat3;
+            document.getElementById('txt-services-title').textContent = t.servicesTitle;
+            document.getElementById('txt-services-sub').textContent = t.servicesSub;
+            document.getElementById('txt-see-all').textContent = t.seeAll;
+            document.getElementById('txt-why-title').textContent = t.whyTitle;
+            document.getElementById('txt-why-sub').innerHTML = t.whySub;
+            document.getElementById('txt-cov-tag').textContent = t.covTag;
+            document.getElementById('txt-cov-title').textContent = t.covTitle;
+            document.getElementById('txt-cov-sub').textContent = t.covSub;
+
+            // Refresh dynamic/open-modal content so it also follows the language
+            const qtyLabel = document.getElementById('qty-label');
+            if (qtyLabel && typeof updateQuantityAndEstimate === 'function') {
+                updateQuantityAndEstimate();
+            }
+            if (currentCategoryKey) {
+                openCategoryDetail(currentCategoryKey);
+            }
+        }
+
+        // Set default booking date to tomorrow
+        const dateInput = document.getElementById('cust-date');
+        if (dateInput) {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            dateInput.valueAsDate = tomorrow;
+        }
+
+        // Data Rincian Layanan sesuai Brosur Price List Mega Cemerlang Indonesia
+        const categoryData = {
+            springbed: {
+                title: "Laundry Springbed",
+                subtitle: "Tersedia untuk tipe Springbed Biasa & Springbed Latex (Klik item untuk pesan)",
+                defaultService: "Springbed Biasa 160x200 (Rp 285.000)",
+                isTable: true,
+                rows: [
+                    { size: "100 X 200", biasa: "Rp 180.000", latex: "Rp 250.000", valBiasa: "Springbed Biasa 100x200 (Rp 180.000)", valLatex: "Springbed Latex 100x200 (Rp 250.000)" },
+                    { size: "120 X 200", biasa: "Rp 185.000", latex: "Rp 260.000", valBiasa: "Springbed Biasa 120x200 (Rp 185.000)", valLatex: "Springbed Latex 120x200 (Rp 260.000)" },
+                    { size: "160 X 200", biasa: "Rp 285.000", latex: "Rp 350.000", valBiasa: "Springbed Biasa 160x200 (Rp 285.000)", valLatex: "Springbed Latex 160x200 (Rp 350.000)" },
+                    { size: "180 X 200", biasa: "Rp 310.000", latex: "Rp 400.000", valBiasa: "Springbed Biasa 180x200 (Rp 310.000)", valLatex: "Springbed Latex 180x200 (Rp 400.000)" },
+                    { size: "200 X 200", biasa: "Rp 370.000", latex: "Rp 430.000", valBiasa: "Springbed Biasa 200x200 (Rp 370.000)", valLatex: "Springbed Latex 200x200 (Rp 430.000)" }
+                ]
+            },
+            sofa: {
+                title: "Laundry Sofa & Jok Mobil",
+                subtitle: "Termasuk Stroller, Car Seat & Salon Kamar Mandi",
+                defaultService: "Laundry Sofa (Rp 50K - 85K / Seat)",
+                isTable: false,
+                items: [
+                    { name: "SOFA", price: "Rp 50K - 85K / Seat", val: "Laundry Sofa (Rp 50K - 85K / Seat)" },
+                    { name: "JOK MOBIL", price: "Rp 50K - 85K / Seat", val: "Laundry Jok Mobil (Rp 50K - 85K / Seat)" },
+                    { name: "STROLLER", price: "Rp 170K / Seat", val: "Laundry Stroller (Rp 170K / Seat)" },
+                    { name: "CAR SEAT", price: "Rp 180K / Seat", val: "Laundry Car Seat (Rp 180K / Seat)" },
+                    { name: "SALON KAMAR MANDI", price: "Rp 150K - 250K / Unit", val: "Salon Kamar Mandi (Rp 150K - 250K / Unit)" }
+                ]
+            },
+            poles: {
+                title: "Poles Lantai",
+                subtitle: "Perawatan Kristalisasi & Selep lantai agar kembali berkilau",
+                defaultService: "Poles Marmer Kristalisasi (Rp 40K / m²)",
+                isTable: false,
+                items: [
+                    { name: "MARMER (KRISTALISASI)", price: "Rp 40K / m²", val: "Poles Marmer Kristalisasi (Rp 40K / m²)" },
+                    { name: "MARMER (SELEP)", price: "Rp 75K / m²", val: "Poles Marmer Selep (Rp 75K / m²)" },
+                    { name: "TERAZZO (KRISTALISASI)", price: "Rp 40K / m²", val: "Poles Terazzo Kristalisasi (Rp 40K / m²)" },
+                    { name: "TERAZZO (SELEP)", price: "Rp 75K / m²", val: "Poles Terazzo Selep (Rp 75K / m²)" },
+                    { name: "GRANITE TILE", price: "Rp 25K - 35K / m²", val: "Poles Granite Tile (Rp 25K - 35K / m²)" }
+                ]
+            },
+            general_karpet: {
+                title: "General Cleaning & Karpet",
+                subtitle: "Solusi bersih menyeluruh untuk Rumah, Kantor & Karpet",
+                defaultService: "General Cleaning Rumah / Kantor (Rp 20K - 30K / m²)",
+                isTable: false,
+                items: [
+                    { name: "LAUNDRY KARPET", price: "Rp 15K - 20K / m²", val: "Laundry Karpet (Rp 15K - 20K / m²)" },
+                    { name: "GENERAL CLEANING (RUMAH / KANTOR)", price: "Rp 20K - 30K / m²", val: "General Cleaning Rumah / Kantor (Rp 20K - 30K / m²)" }
+                ]
+            }
+        };
+
+        // Open Category Detail Modal
+        function openCategoryDetail(catKey) {
+            const data = categoryData[catKey];
+            if (!data) return;
+
+            currentCategoryKey = catKey;
+            const t = translations[currentLang];
+            document.getElementById('cat-modal-title').textContent = t['cat_' + catKey + '_title'] || data.title;
+            document.getElementById('cat-modal-subtitle').textContent = t['cat_' + catKey + '_sub'] || data.subtitle;
+            const body = document.getElementById('cat-modal-body');
+            body.innerHTML = '';
+
+            if (data.isTable) {
+                let tableHtml = `
+                    <div class="overflow-hidden rounded-2xl border border-gray-200">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-brand-dark text-white">
+                                    <th class="py-2.5 px-3 font-bold">SIZE SPRINGBED</th>
+                                    <th class="py-2.5 px-3 font-bold text-center">SPRINGBED BIASA</th>
+                                    <th class="py-2.5 px-3 font-bold text-center">SPRINGBED LATEX</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                `;
+                data.rows.forEach(r => {
+                    tableHtml += `
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-2.5 px-3 font-bold text-brand-dark">${r.size}</td>
+                            <td class="py-2.5 px-3 text-center">
+                                <button onclick="selectServiceFromDetail('${r.valBiasa}')" class="px-2 py-1 rounded-lg bg-gray-100 hover:bg-brand-dark hover:text-white font-semibold transition-colors">${r.biasa}</button>
+                            </td>
+                            <td class="py-2.5 px-3 text-center">
+                                <button onclick="selectServiceFromDetail('${r.valLatex}')" class="px-2 py-1 rounded-lg bg-gray-100 hover:bg-brand-dark hover:text-white font-semibold transition-colors">${r.latex}</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+                tableHtml += `</tbody></table></div>`;
+                body.innerHTML = tableHtml;
+            } else {
+                data.items.forEach(item => {
+                    const row = document.createElement('div');
+                    row.className = "p-3.5 rounded-2xl border border-gray-200/80 hover:border-brand-dark bg-brand-light/50 flex items-center justify-between cursor-pointer transition-all";
+                    row.onclick = () => selectServiceFromDetail(item.val);
+                    row.innerHTML = `
+                        <div>
+                            <p class="font-bold text-xs text-brand-dark">${item.name}</p>
+                            <p class="text-[11px] text-brand-gray mt-0.5">${t.catClickSelect}</p>
+                        </div>
+                        <span class="font-extrabold text-xs bg-white px-3 py-1.5 rounded-xl border border-gray-200 text-brand-dark shrink-0">${item.price}</span>
+                    `;
+                    body.appendChild(row);
+                });
+            }
+
+            const bookBtn = document.getElementById('cat-modal-book-btn');
+            bookBtn.onclick = () => selectServiceFromDetail(data.defaultService);
+
+            const directWaBtn = document.getElementById('cat-modal-wa-direct');
+            if (directWaBtn) {
+                const msg = `Halo *Mega Cemerlang Tangerang Raya*,\nSaya tertarik memesan layanan kategori *${data.title}* (${data.defaultService}). Mohon info jadwal yang tersedia.`;
+                directWaBtn.href = `https://wa.me/6281379097488?text=${encodeURIComponent(msg)}`;
+            }
+
+            document.getElementById('category-detail-modal').classList.remove('hidden');
+        }
+
+        function closeCategoryDetail() {
+            document.getElementById('category-detail-modal').classList.add('hidden');
+            currentCategoryKey = null;
+        }
+
+        function selectServiceFromDetail(serviceVal) {
+            closeCategoryDetail();
+            openBookingModal(serviceVal);
+        }
+
+        // Mobile Drawer Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Format Rupiah Helper
+        function formatRupiah(num) {
+            return 'Rp ' + num.toLocaleString('id-ID');
+        }
+
+        // Adjust Quantity with +/- buttons
+        function adjustQty(delta) {
+            const qtyInput = document.getElementById('cust-qty');
+            let current = parseInt(qtyInput.value) || 1;
+            current = Math.max(1, current + delta);
+            qtyInput.value = current;
+            calculateEstimate();
+        }
+
+        // Update Label & Calculate Total Price Estimate
+        function updateQuantityAndEstimate() {
+            const select = document.getElementById('cust-service');
+            const selectedOpt = select.options[select.selectedIndex];
+            const unit = selectedOpt.getAttribute('data-unit') || 'Unit';
+            const qtyLabel = document.getElementById('qty-label');
+            const qtyBadge = document.getElementById('qty-unit-badge');
+            const qtyInput = document.getElementById('cust-qty');
+
+            const t = translations[currentLang];
+            if (unit === 'Seat') {
+                qtyLabel.textContent = t.qtyLabelSeat;
+                qtyBadge.textContent = 'Seat';
+            } else if (unit === 'm²') {
+                qtyLabel.textContent = t.qtyLabelM2;
+                qtyBadge.textContent = 'm²';
+            } else {
+                qtyLabel.textContent = t.qtyLabelUnit;
+                qtyBadge.textContent = 'Unit';
+            }
+
+            if (!qtyInput.value || parseInt(qtyInput.value) < 1) {
+                qtyInput.value = 1;
+            }
+            calculateEstimate();
+        }
+
+        function calculateEstimate() {
+            const select = document.getElementById('cust-service');
+            const selectedOpt = select.options[select.selectedIndex];
+            const minPrice = parseInt(selectedOpt.getAttribute('data-min')) || 0;
+            const maxPrice = parseInt(selectedOpt.getAttribute('data-max')) || 0;
+            const qty = Math.max(1, parseInt(document.getElementById('cust-qty').value) || 1);
+
+            const totalMin = minPrice * qty;
+            const totalMax = maxPrice * qty;
+            const estimateEl = document.getElementById('price-estimate');
+
+            if (totalMin === totalMax) {
+                estimateEl.textContent = formatRupiah(totalMin);
+            } else {
+                estimateEl.textContent = `${formatRupiah(totalMin)} - ${formatRupiah(totalMax)}`;
+            }
+            syncWhatsAppLink();
+        }
+
+        // Build WhatsApp URL dynamically from current form fields
+        function buildWhatsAppUrl() {
+            const name = document.getElementById('cust-name').value.trim() || 'Pelanggan Mega Cemerlang';
+            const select = document.getElementById('cust-service');
+            const service = select.value;
+            const unit = select.options[select.selectedIndex].getAttribute('data-unit') || 'Unit';
+            const qty = document.getElementById('cust-qty').value || '1';
+            const estimate = document.getElementById('price-estimate').textContent;
+            const area = document.getElementById('cust-area').value;
+            const date = document.getElementById('cust-date').value || '-';
+            const time = document.getElementById('cust-time').value;
+            const notes = document.getElementById('cust-notes').value.trim() || '-';
+
+            const waMessage = `Halo Admin *Mega Cemerlang Tangerang Raya*,\nSaya ingin memesan layanan cleaning:\n\n*Nama:* ${name}\n*Layanan:* ${service}\n*Jumlah/Kuantitas:* ${qty} ${unit}\n*Estimasi Total:* ${estimate}\n*Wilayah:* ${area}\n*Tanggal:* ${date}\n*Jam:* ${time}\n*Catatan/Alamat:* ${notes}`;
+            return `https://wa.me/6281379097488?text=${encodeURIComponent(waMessage)}`;
+        }
+
+        function syncWhatsAppLink() {
+            const btn = document.getElementById('wa-direct-submit-btn');
+            if (btn) {
+                btn.href = buildWhatsAppUrl();
+            }
+        }
+
+        function handleDirectWaClick() {
+            syncWhatsAppLink();
+            setTimeout(() => {
+                closeBookingModal();
+            }, 400);
+        }
+
+        // Booking Modal Controls
+        function openBookingModal(serviceName) {
+            const modal = document.getElementById('booking-modal');
+            const select = document.getElementById('cust-service');
+
+            if (serviceName) {
+                for (let i = 0; i < select.options.length; i++) {
+                    if (select.options[i].value === serviceName || select.options[i].value.includes(serviceName)) {
+                        select.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            updateQuantityAndEstimate();
+            syncWhatsAppLink();
+            modal.classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+        }
+
+        function submitBooking(e) {
+            e.preventDefault();
+            const waUrl = buildWhatsAppUrl();
+            window.open(waUrl, '_blank', 'noopener,noreferrer');
+            closeBookingModal();
+        }
+
+        // All Services Modal Controls
+        function openAllServicesModal() {
+            document.getElementById('all-services-modal').classList.remove('hidden');
+        }
+
+        function closeAllServicesModal() {
+            document.getElementById('all-services-modal').classList.add('hidden');
+        }
+
+        // Apply the default language on load so the whole page matches the active toggle (EN)
+        setLanguage(currentLang);
+    </script>
+</body>
+</html>
