@@ -745,12 +745,12 @@
                             <textarea id="cust-notes" oninput="syncWhatsAppLink()" rows="2" data-i18n-ph="bookNotesPh" placeholder="Nama cluster, nomor rumah, patokan alamat..." class="w-full px-3.5 py-2 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark"></textarea>
                         </div>
 
-                        <div class="flex gap-2.5 pt-1">
-                            <button type="button" onclick="goToStep1()" class="shrink-0 px-5 py-3.5 rounded-full border border-gray-200 text-brand-dark font-semibold flex items-center justify-center gap-1.5 hover:bg-gray-50 transition-all">
+                        <div class="flex flex-col gap-2.5 pt-1">
+                            <button type="button" onclick="goToStep1()" class="w-full px-5 py-3 rounded-full border border-gray-200 text-brand-dark font-semibold flex items-center justify-center gap-1.5 hover:bg-gray-50 transition-all">
                                 <i data-lucide="arrow-left" class="w-4 h-4"></i>
                                 <span data-i18n="bookBack">Kembali</span>
                             </button>
-                            <a id="wa-direct-submit-btn" href="https://wa.me/6281379097488" target="_blank" rel="noopener noreferrer" onclick="handleDirectWaClick(event)" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-lg transition-all cursor-pointer">
+                            <a id="wa-direct-submit-btn" href="https://wa.me/6281379097488" target="_blank" rel="noopener noreferrer" onclick="handleDirectWaClick(event)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-lg transition-all cursor-pointer">
                                 <span data-i18n="bookSubmit">Kirim Pesanan via WhatsApp</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             </a>
