@@ -134,7 +134,7 @@
                 </p>
                 
                 <!-- CTA Pill Button -->
-                <button onclick="openBookingModal('General Cleaning (Rumah / Kantor)')" class="bg-[#14171A] hover:bg-black text-white font-medium text-[15px] px-6 py-3.5 rounded-full inline-flex items-center gap-3 shadow-lg shadow-black/15 hover:shadow-xl hover:-translate-y-0.5 transition-all active:translate-y-0">
+                <button onclick="openBookingModal('General Cleaning Rumah / Kantor')" class="bg-[#14171A] hover:bg-black text-white font-medium text-[15px] px-6 py-3.5 rounded-full inline-flex items-center gap-3 shadow-lg shadow-black/15 hover:shadow-xl hover:-translate-y-0.5 transition-all active:translate-y-0">
                     <span id="txt-hero-cta">Book a Service</span>
                     <i data-lucide="arrow-right" class="w-4 h-4 stroke-[2.2]"></i>
                 </button>
@@ -584,7 +584,7 @@
                 <div class="pt-4 border-t border-gray-100">
                     <p class="text-xs font-semibold text-brand-dark mb-1">WhatsApp: 0813-7909-7488</p>
                     <p class="text-[11px] text-brand-gray mb-3">Instagram: @megacemerlang.id</p>
-                    <button onclick="toggleMobileMenu(); openBookingModal('General Cleaning (Rumah / Kantor)')" class="w-full bg-brand-dark text-white py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2">
+                    <button onclick="toggleMobileMenu(); openBookingModal('General Cleaning Rumah / Kantor')" class="w-full bg-brand-dark text-white py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2">
                         <span data-i18n="heroCta">Pesan Layanan</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </button>
@@ -648,35 +648,35 @@
                         <div>
                             <label data-i18n="bookService" class="block text-xs font-semibold text-brand-dark mb-1">Pilih Jenis Layanan</label>
                             <select id="cust-service" onchange="updateQuantityAndEstimate()" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-dark bg-white">
-                                <optgroup label="Laundry Springbed">
-                                    <option value="Springbed Biasa 100x200 (Rp 180.000)" data-unit="Unit" data-min="180000" data-max="180000">Springbed Biasa 100x200 - Rp 180.000</option>
-                                    <option value="Springbed Latex 100x200 (Rp 250.000)" data-unit="Unit" data-min="250000" data-max="250000">Springbed Latex 100x200 - Rp 250.000</option>
-                                    <option value="Springbed Biasa 120x200 (Rp 185.000)" data-unit="Unit" data-min="185000" data-max="185000">Springbed Biasa 120x200 - Rp 185.000</option>
-                                    <option value="Springbed Latex 120x200 (Rp 260.000)" data-unit="Unit" data-min="260000" data-max="260000">Springbed Latex 120x200 - Rp 260.000</option>
-                                    <option value="Springbed Biasa 160x200 (Rp 285.000)" data-unit="Unit" data-min="285000" data-max="285000">Springbed Biasa 160x200 - Rp 285.000</option>
-                                    <option value="Springbed Latex 160x200 (Rp 350.000)" data-unit="Unit" data-min="350000" data-max="350000">Springbed Latex 160x200 - Rp 350.000</option>
-                                    <option value="Springbed Biasa 180x200 (Rp 310.000)" data-unit="Unit" data-min="310000" data-max="310000">Springbed Biasa 180x200 - Rp 310.000</option>
-                                    <option value="Springbed Latex 180x200 (Rp 400.000)" data-unit="Unit" data-min="400000" data-max="400000">Springbed Latex 180x200 - Rp 400.000</option>
-                                    <option value="Springbed Biasa 200x200 (Rp 370.000)" data-unit="Unit" data-min="370000" data-max="370000">Springbed Biasa 200x200 - Rp 370.000</option>
-                                    <option value="Springbed Latex 200x200 (Rp 430.000)" data-unit="Unit" data-min="430000" data-max="430000">Springbed Latex 200x200 - Rp 430.000</option>
+                                <optgroup data-id="Laundry Springbed" data-en="Springbed Laundry" label="Laundry Springbed">
+                                    <option value="Springbed Biasa 100x200 (Rp 180.000)" data-unit="Unit" data-min="180000" data-max="180000" data-id="Springbed Biasa 100x200 - Rp 180.000" data-en="Standard Springbed 100x200 - Rp 180.000">Springbed Biasa 100x200 - Rp 180.000</option>
+                                    <option value="Springbed Latex 100x200 (Rp 250.000)" data-unit="Unit" data-min="250000" data-max="250000" data-id="Springbed Latex 100x200 - Rp 250.000" data-en="Latex Springbed 100x200 - Rp 250.000">Springbed Latex 100x200 - Rp 250.000</option>
+                                    <option value="Springbed Biasa 120x200 (Rp 185.000)" data-unit="Unit" data-min="185000" data-max="185000" data-id="Springbed Biasa 120x200 - Rp 185.000" data-en="Standard Springbed 120x200 - Rp 185.000">Springbed Biasa 120x200 - Rp 185.000</option>
+                                    <option value="Springbed Latex 120x200 (Rp 260.000)" data-unit="Unit" data-min="260000" data-max="260000" data-id="Springbed Latex 120x200 - Rp 260.000" data-en="Latex Springbed 120x200 - Rp 260.000">Springbed Latex 120x200 - Rp 260.000</option>
+                                    <option value="Springbed Biasa 160x200 (Rp 285.000)" data-unit="Unit" data-min="285000" data-max="285000" data-id="Springbed Biasa 160x200 - Rp 285.000" data-en="Standard Springbed 160x200 - Rp 285.000">Springbed Biasa 160x200 - Rp 285.000</option>
+                                    <option value="Springbed Latex 160x200 (Rp 350.000)" data-unit="Unit" data-min="350000" data-max="350000" data-id="Springbed Latex 160x200 - Rp 350.000" data-en="Latex Springbed 160x200 - Rp 350.000">Springbed Latex 160x200 - Rp 350.000</option>
+                                    <option value="Springbed Biasa 180x200 (Rp 310.000)" data-unit="Unit" data-min="310000" data-max="310000" data-id="Springbed Biasa 180x200 - Rp 310.000" data-en="Standard Springbed 180x200 - Rp 310.000">Springbed Biasa 180x200 - Rp 310.000</option>
+                                    <option value="Springbed Latex 180x200 (Rp 400.000)" data-unit="Unit" data-min="400000" data-max="400000" data-id="Springbed Latex 180x200 - Rp 400.000" data-en="Latex Springbed 180x200 - Rp 400.000">Springbed Latex 180x200 - Rp 400.000</option>
+                                    <option value="Springbed Biasa 200x200 (Rp 370.000)" data-unit="Unit" data-min="370000" data-max="370000" data-id="Springbed Biasa 200x200 - Rp 370.000" data-en="Standard Springbed 200x200 - Rp 370.000">Springbed Biasa 200x200 - Rp 370.000</option>
+                                    <option value="Springbed Latex 200x200 (Rp 430.000)" data-unit="Unit" data-min="430000" data-max="430000" data-id="Springbed Latex 200x200 - Rp 430.000" data-en="Latex Springbed 200x200 - Rp 430.000">Springbed Latex 200x200 - Rp 430.000</option>
                                 </optgroup>
-                                <optgroup label="Laundry Sofa, Jok Mobil & Kamar Mandi">
-                                    <option value="Laundry Sofa (Rp 50K - 85K / Seat)" data-unit="Seat" data-min="50000" data-max="85000">Sofa - Rp 50K - 85K / Seat</option>
-                                    <option value="Laundry Jok Mobil (Rp 50K - 85K / Seat)" data-unit="Seat" data-min="50000" data-max="85000">Jok Mobil - Rp 50K - 85K / Seat</option>
-                                    <option value="Laundry Stroller (Rp 170K / Seat)" data-unit="Seat" data-min="170000" data-max="170000">Stroller - Rp 170K / Seat</option>
-                                    <option value="Laundry Car Seat (Rp 180K / Seat)" data-unit="Seat" data-min="180000" data-max="180000">Car Seat - Rp 180K / Seat</option>
-                                    <option value="Salon Kamar Mandi (Rp 150K - 250K / Unit)" data-unit="Unit" data-min="150000" data-max="250000">Salon Kamar Mandi - Rp 150K - 250K / Unit</option>
+                                <optgroup data-id="Laundry Sofa, Jok Mobil & Kamar Mandi" data-en="Sofa, Car Upholstery & Bathroom" label="Laundry Sofa, Jok Mobil & Kamar Mandi">
+                                    <option value="Laundry Sofa (Rp 50K / Seat)" data-unit="Seat" data-min="50000" data-max="50000" data-id="Sofa - Rp 50K / Seat" data-en="Sofa - Rp 50K / Seat">Sofa - Rp 50K / Seat</option>
+                                    <option value="Laundry Jok Mobil (Rp 50K / Seat)" data-unit="Seat" data-min="50000" data-max="50000" data-id="Jok Mobil - Rp 50K / Seat" data-en="Car Upholstery - Rp 50K / Seat">Jok Mobil - Rp 50K / Seat</option>
+                                    <option value="Laundry Stroller (Rp 170K / Seat)" data-unit="Seat" data-min="170000" data-max="170000" data-id="Stroller - Rp 170K / Seat" data-en="Stroller - Rp 170K / Seat">Stroller - Rp 170K / Seat</option>
+                                    <option value="Laundry Car Seat (Rp 180K / Seat)" data-unit="Seat" data-min="180000" data-max="180000" data-id="Car Seat - Rp 180K / Seat" data-en="Baby Car Seat - Rp 180K / Seat">Car Seat - Rp 180K / Seat</option>
+                                    <option value="Salon Kamar Mandi (Rp 150K / Unit)" data-unit="Unit" data-min="150000" data-max="150000" data-id="Salon Kamar Mandi - Rp 150K / Unit" data-en="Bathroom Detailing - Rp 150K / Unit">Salon Kamar Mandi - Rp 150K / Unit</option>
                                 </optgroup>
-                                <optgroup label="Poles Lantai">
-                                    <option value="Poles Marmer Kristalisasi (Rp 40K / m²)" data-unit="m²" data-min="40000" data-max="40000">Marmer (Kristalisasi) - Rp 40K / m²</option>
-                                    <option value="Poles Marmer Selep (Rp 75K / m²)" data-unit="m²" data-min="75000" data-max="75000">Marmer (Selep) - Rp 75K / m²</option>
-                                    <option value="Poles Terazzo Kristalisasi (Rp 40K / m²)" data-unit="m²" data-min="40000" data-max="40000">Terazzo (Kristalisasi) - Rp 40K / m²</option>
-                                    <option value="Poles Terazzo Selep (Rp 75K / m²)" data-unit="m²" data-min="75000" data-max="75000">Terazzo (Selep) - Rp 75K / m²</option>
-                                    <option value="Poles Granite Tile (Rp 25K - 35K / m²)" data-unit="m²" data-min="25000" data-max="35000">Granite Tile - Rp 25K - 35K / m²</option>
+                                <optgroup data-id="Poles Lantai" data-en="Floor Polishing" label="Poles Lantai">
+                                    <option value="Poles Marmer Kristalisasi (Rp 40K / m²)" data-unit="m²" data-min="40000" data-max="40000" data-id="Marmer (Kristalisasi) - Rp 40K / m²" data-en="Marble (Crystallization) - Rp 40K / m²">Marmer (Kristalisasi) - Rp 40K / m²</option>
+                                    <option value="Poles Marmer Selep (Rp 75K / m²)" data-unit="m²" data-min="75000" data-max="75000" data-id="Marmer (Selep) - Rp 75K / m²" data-en="Marble (Grinding) - Rp 75K / m²">Marmer (Selep) - Rp 75K / m²</option>
+                                    <option value="Poles Terazzo Kristalisasi (Rp 40K / m²)" data-unit="m²" data-min="40000" data-max="40000" data-id="Terazzo (Kristalisasi) - Rp 40K / m²" data-en="Terrazzo (Crystallization) - Rp 40K / m²">Terazzo (Kristalisasi) - Rp 40K / m²</option>
+                                    <option value="Poles Terazzo Selep (Rp 75K / m²)" data-unit="m²" data-min="75000" data-max="75000" data-id="Terazzo (Selep) - Rp 75K / m²" data-en="Terrazzo (Grinding) - Rp 75K / m²">Terazzo (Selep) - Rp 75K / m²</option>
+                                    <option value="Poles Granite Tile (Rp 25K / m²)" data-unit="m²" data-min="25000" data-max="25000" data-id="Granite Tile - Rp 25K / m²" data-en="Granite Tile - Rp 25K / m²">Granite Tile - Rp 25K / m²</option>
                                 </optgroup>
-                                <optgroup label="General Cleaning & Karpet">
-                                    <option value="Laundry Karpet (Rp 15K - 20K / m²)" data-unit="m²" data-min="15000" data-max="20000">Laundry Karpet - Rp 15K - 20K / m²</option>
-                                    <option value="General Cleaning Rumah / Kantor (Rp 20K - 30K / m²)" data-unit="m²" data-min="20000" data-max="30000">General Cleaning (Rumah / Kantor) - Rp 20K - 30K / m²</option>
+                                <optgroup data-id="General Cleaning & Karpet" data-en="General Cleaning & Carpet" label="General Cleaning & Karpet">
+                                    <option value="Laundry Karpet (Rp 15K / m²)" data-unit="m²" data-min="15000" data-max="15000" data-id="Laundry Karpet - Rp 15K / m²" data-en="Carpet Laundry - Rp 15K / m²">Laundry Karpet - Rp 15K / m²</option>
+                                    <option value="General Cleaning Rumah / Kantor (Rp 20K / m²)" data-unit="m²" data-min="20000" data-max="20000" data-id="General Cleaning (Rumah / Kantor) - Rp 20K / m²" data-en="General Cleaning (Home / Office) - Rp 20K / m²">General Cleaning (Rumah / Kantor) - Rp 20K / m²</option>
                                 </optgroup>
                             </select>
                         </div>
@@ -844,6 +844,7 @@
                 catBookBtn: "Set Quantity & Book This Service",
                 catWaDirect: "Chat & Order Directly via WhatsApp",
                 catClickSelect: "Click to choose this service",
+                tblSize: "SPRINGBED SIZE", tblStandard: "STANDARD", tblLatex: "LATEX",
                 // Booking modal / form
                 bookFormTag: "Quick Booking Form",
                 bookName: "Full Name",
@@ -918,6 +919,7 @@
                 catBookBtn: "Atur Jumlah & Pesan Layanan Ini",
                 catWaDirect: "Chat & Pesan Langsung via WhatsApp",
                 catClickSelect: "Klik untuk pilih layanan ini",
+                tblSize: "SIZE SPRINGBED", tblStandard: "SPRINGBED BIASA", tblLatex: "SPRINGBED LATEX",
                 // Booking modal / form
                 bookFormTag: "Form Pemesanan Cepat",
                 bookName: "Nama Lengkap",
@@ -994,6 +996,17 @@
             document.getElementById('txt-cov-title').textContent = t.covTitle;
             document.getElementById('txt-cov-sub').textContent = t.covSub;
 
+            // Translate the booking <select> optgroups and options by their data-en/data-id labels
+            const svcSelect = document.getElementById('cust-service');
+            if (svcSelect) {
+                svcSelect.querySelectorAll('optgroup').forEach(og => {
+                    if (og.dataset[lang]) og.label = og.dataset[lang];
+                });
+                svcSelect.querySelectorAll('option').forEach(op => {
+                    if (op.dataset[lang]) op.textContent = op.dataset[lang];
+                });
+            }
+
             // Refresh dynamic/open-modal content so it also follows the language
             const qtyLabel = document.getElementById('qty-label');
             if (qtyLabel && typeof updateQuantityAndEstimate === 'function') {
@@ -1028,39 +1041,33 @@
                 ]
             },
             sofa: {
-                title: "Laundry Sofa & Jok Mobil",
-                subtitle: "Termasuk Stroller, Car Seat & Salon Kamar Mandi",
-                defaultService: "Laundry Sofa (Rp 50K - 85K / Seat)",
+                defaultService: "Laundry Sofa (Rp 50K / Seat)",
                 isTable: false,
                 items: [
-                    { name: "SOFA", price: "Rp 50K - 85K / Seat", val: "Laundry Sofa (Rp 50K - 85K / Seat)" },
-                    { name: "JOK MOBIL", price: "Rp 50K - 85K / Seat", val: "Laundry Jok Mobil (Rp 50K - 85K / Seat)" },
-                    { name: "STROLLER", price: "Rp 170K / Seat", val: "Laundry Stroller (Rp 170K / Seat)" },
-                    { name: "CAR SEAT", price: "Rp 180K / Seat", val: "Laundry Car Seat (Rp 180K / Seat)" },
-                    { name: "SALON KAMAR MANDI", price: "Rp 150K - 250K / Unit", val: "Salon Kamar Mandi (Rp 150K - 250K / Unit)" }
+                    { name_id: "SOFA", name_en: "SOFA", price: "Rp 50K / Seat", val: "Laundry Sofa (Rp 50K / Seat)" },
+                    { name_id: "JOK MOBIL", name_en: "CAR UPHOLSTERY", price: "Rp 50K / Seat", val: "Laundry Jok Mobil (Rp 50K / Seat)" },
+                    { name_id: "STROLLER", name_en: "STROLLER", price: "Rp 170K / Seat", val: "Laundry Stroller (Rp 170K / Seat)" },
+                    { name_id: "CAR SEAT", name_en: "BABY CAR SEAT", price: "Rp 180K / Seat", val: "Laundry Car Seat (Rp 180K / Seat)" },
+                    { name_id: "SALON KAMAR MANDI", name_en: "BATHROOM DETAILING", price: "Rp 150K / Unit", val: "Salon Kamar Mandi (Rp 150K / Unit)" }
                 ]
             },
             poles: {
-                title: "Poles Lantai",
-                subtitle: "Perawatan Kristalisasi & Selep lantai agar kembali berkilau",
                 defaultService: "Poles Marmer Kristalisasi (Rp 40K / m²)",
                 isTable: false,
                 items: [
-                    { name: "MARMER (KRISTALISASI)", price: "Rp 40K / m²", val: "Poles Marmer Kristalisasi (Rp 40K / m²)" },
-                    { name: "MARMER (SELEP)", price: "Rp 75K / m²", val: "Poles Marmer Selep (Rp 75K / m²)" },
-                    { name: "TERAZZO (KRISTALISASI)", price: "Rp 40K / m²", val: "Poles Terazzo Kristalisasi (Rp 40K / m²)" },
-                    { name: "TERAZZO (SELEP)", price: "Rp 75K / m²", val: "Poles Terazzo Selep (Rp 75K / m²)" },
-                    { name: "GRANITE TILE", price: "Rp 25K - 35K / m²", val: "Poles Granite Tile (Rp 25K - 35K / m²)" }
+                    { name_id: "MARMER (KRISTALISASI)", name_en: "MARBLE (CRYSTALLIZATION)", price: "Rp 40K / m²", val: "Poles Marmer Kristalisasi (Rp 40K / m²)" },
+                    { name_id: "MARMER (SELEP)", name_en: "MARBLE (GRINDING)", price: "Rp 75K / m²", val: "Poles Marmer Selep (Rp 75K / m²)" },
+                    { name_id: "TERAZZO (KRISTALISASI)", name_en: "TERRAZZO (CRYSTALLIZATION)", price: "Rp 40K / m²", val: "Poles Terazzo Kristalisasi (Rp 40K / m²)" },
+                    { name_id: "TERAZZO (SELEP)", name_en: "TERRAZZO (GRINDING)", price: "Rp 75K / m²", val: "Poles Terazzo Selep (Rp 75K / m²)" },
+                    { name_id: "GRANITE TILE", name_en: "GRANITE TILE", price: "Rp 25K / m²", val: "Poles Granite Tile (Rp 25K / m²)" }
                 ]
             },
             general_karpet: {
-                title: "General Cleaning & Karpet",
-                subtitle: "Solusi bersih menyeluruh untuk Rumah, Kantor & Karpet",
-                defaultService: "General Cleaning Rumah / Kantor (Rp 20K - 30K / m²)",
+                defaultService: "General Cleaning Rumah / Kantor (Rp 20K / m²)",
                 isTable: false,
                 items: [
-                    { name: "LAUNDRY KARPET", price: "Rp 15K - 20K / m²", val: "Laundry Karpet (Rp 15K - 20K / m²)" },
-                    { name: "GENERAL CLEANING (RUMAH / KANTOR)", price: "Rp 20K - 30K / m²", val: "General Cleaning Rumah / Kantor (Rp 20K - 30K / m²)" }
+                    { name_id: "LAUNDRY KARPET", name_en: "CARPET LAUNDRY", price: "Rp 15K / m²", val: "Laundry Karpet (Rp 15K / m²)" },
+                    { name_id: "GENERAL CLEANING (RUMAH / KANTOR)", name_en: "GENERAL CLEANING (HOME / OFFICE)", price: "Rp 20K / m²", val: "General Cleaning Rumah / Kantor (Rp 20K / m²)" }
                 ]
             }
         };
@@ -1072,8 +1079,9 @@
 
             currentCategoryKey = catKey;
             const t = translations[currentLang];
-            document.getElementById('cat-modal-title').textContent = t['cat_' + catKey + '_title'] || data.title;
-            document.getElementById('cat-modal-subtitle').textContent = t['cat_' + catKey + '_sub'] || data.subtitle;
+            const catTitle = t['cat_' + catKey + '_title'] || data.title || '';
+            document.getElementById('cat-modal-title').textContent = catTitle;
+            document.getElementById('cat-modal-subtitle').textContent = t['cat_' + catKey + '_sub'] || data.subtitle || '';
             const body = document.getElementById('cat-modal-body');
             body.innerHTML = '';
 
@@ -1083,9 +1091,9 @@
                         <table class="w-full text-left border-collapse text-xs">
                             <thead>
                                 <tr class="bg-brand-dark text-white">
-                                    <th class="py-2.5 px-3 font-bold">SIZE SPRINGBED</th>
-                                    <th class="py-2.5 px-3 font-bold text-center">SPRINGBED BIASA</th>
-                                    <th class="py-2.5 px-3 font-bold text-center">SPRINGBED LATEX</th>
+                                    <th class="py-2.5 px-3 font-bold">${t.tblSize}</th>
+                                    <th class="py-2.5 px-3 font-bold text-center">${t.tblStandard}</th>
+                                    <th class="py-2.5 px-3 font-bold text-center">${t.tblLatex}</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-100">
@@ -1112,7 +1120,7 @@
                     row.onclick = () => selectServiceFromDetail(item.val);
                     row.innerHTML = `
                         <div>
-                            <p class="font-bold text-xs text-brand-dark">${item.name}</p>
+                            <p class="font-bold text-xs text-brand-dark">${item['name_' + currentLang] || item.name_id}</p>
                             <p class="text-[11px] text-brand-gray mt-0.5">${t.catClickSelect}</p>
                         </div>
                         <span class="font-extrabold text-xs bg-white px-3 py-1.5 rounded-xl border border-gray-200 text-brand-dark shrink-0">${item.price}</span>
@@ -1126,7 +1134,7 @@
 
             const directWaBtn = document.getElementById('cat-modal-wa-direct');
             if (directWaBtn) {
-                const msg = `Halo *Mega Cemerlang Tangerang Raya*,\nSaya tertarik memesan layanan kategori *${data.title}* (${data.defaultService}). Mohon info jadwal yang tersedia.`;
+                const msg = `Halo *Mega Cemerlang Tangerang Raya*,\nSaya tertarik memesan layanan kategori *${catTitle}* (${data.defaultService}). Mohon info jadwal yang tersedia.`;
                 directWaBtn.href = `https://wa.me/6281379097488?text=${encodeURIComponent(msg)}`;
             }
 
